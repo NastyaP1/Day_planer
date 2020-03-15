@@ -12,5 +12,5 @@
 Ссылки:
 * Miro: функциональная схема: https://miro.com/app/board/o9J_kugDQco=/ 
 * Trello: https://trello.com/b/JgAAixwV/ежедневник
-* Техническое задание: [Contribution guidelines for this project](Техническое задание.pdf)
-* Курсовая работа:  [Contribution guidelines for this project](Курсовая работа.pdf)
+* Техническое задание: [Относительная ссылка на документ](/Техническое задание.pdf)
+* Курсовая работа:  [Относительная ссылка на документ](/Курсовая работа.pdf)
