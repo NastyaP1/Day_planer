@@ -1,7 +1,15 @@
 # Day_planer
+Настоящий документ предназначен для ознакомления пользователя с нашим веб-приложением. Ниже представлены краткое описание, команда и роли ее участников, ссылки по работе над приложением, а так же документы - ТЗ и курсовая работа.
 
-### Miro: функциональная схема: https://miro.com/app/board/o9J_kugDQco=/
-### Trello: https://trello.com/b/JgAAixwV/ежедневник
-### Техническое задание: https://docs.google.com/document/d/1JBKPTUE1wZthh8INLpnJCoyr0MgTIJuK3bVIuxnGPr4/edit#
-### Курсовая работа: https://docs.google.com/document/d/1AqfO81qyRV2ipY0n4FPfb2sNRse9j-79Bct9moVameY/edit?usp=sharing
-### Видение: https://docs.google.com/document/d/1FDaHPYlprhRKsvciJWPtoNEIr3x27X-PU7KV8RnWQS8/edit?usp=sharing
+##Веб-приложение для планировая дел
+Простой и удобный органайзер, который поможет навести порядок в вашей жизни. С помощью календаря отмечайте важные даты и события. А наглядный список задач, целей и планов поможет ничего не забыть и не упустить. 
+
+Команда:
+Капусткин В.И. - ux/ui-дизайнер, в дальнейшем тестировщик и бизнес-аналитик;
+Переславцева А.А. - PM, в дальйнешем back-end разработчик;
+Теремкова Д.А. - бизнес-аналитик, в дальнейшем front-end разработчик;
+
+Miro: функциональная схема: https://miro.com/app/board/o9J_kugDQco=/ 
+Trello: https://trello.com/b/JgAAixwV/ежедневник
+Техническое задание: 
+Курсовая работа: 
