@@ -1,4 +1,4 @@
-package repositories;
+package com.example.organiser.repositories;
 
 import java.util.Optional;
 import com.example.organiser.entities.User;

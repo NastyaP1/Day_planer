@@ -1,5 +1,7 @@
 package com.example.organiser.config;
 
+import com.example.organiser.services.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,19 +22,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http.csrf().disable().cors()
+        http.csrf().disable().cors()
             .and()
             .addFilter(digestAuthenticationFilter()) 
             .exceptionHandling().authenticationEntryPoint(digestEntryPoint())
             .and()
-            .authorizeRequests().antMatchers("/api/routes/**").permitAll()
+            .authorizeRequests().antMatchers("/api/**").permitAll()
             .anyRequest().authenticated()
             .and()
-            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();*/
-        http.csrf().disable().cors()
-        .and()
-        .authorizeRequests().antMatchers("/**").permitAll()
-        .anyRequest().authenticated();
+            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
+        // http.csrf().disable().cors()
+        // .and()
+        // .authorizeRequests().antMatchers("/**").permitAll()
+        // .anyRequest().authenticated();
     }
 
     DigestAuthenticationFilter digestAuthenticationFilter() throws Exception {
@@ -69,3 +71,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new EmptyPasswordEncoderImpl();
     }
     
+}
