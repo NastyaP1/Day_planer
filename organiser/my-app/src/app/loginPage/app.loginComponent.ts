@@ -48,8 +48,8 @@ export class LoginPageComponent implements OnInit {
     }
 
     firstDigestRequest() {
-    this.uri = 'api/user/1';
-    this.url = 'http://localhost:8182/api/user/1';
+    this.uri = 'auth/login';
+    this.url = 'http://localhost:8182/auth/login';
     this.method = 'GET';
     this.nc = 1;
 

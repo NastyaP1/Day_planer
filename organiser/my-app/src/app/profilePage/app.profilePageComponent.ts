@@ -17,9 +17,9 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     const con = new XMLHttpRequest();
-    con.open('GET', 'http://localhost:8182/api/user/1', false);
+    con.open('GET', 'http://localhost:8182/api/user', false);
 
-    const header = this.data.updateAndGetAuthHeader('GET', 'api/user/1');
+    const header = this.data.updateAndGetAuthHeader('GET', 'api/user');
 
     console.log(header);
 
