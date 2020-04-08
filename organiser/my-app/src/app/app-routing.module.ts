@@ -17,9 +17,7 @@ const routes: Routes = [{
   path: 'profilePage',
   component: ProfilePageComponent
 },
-
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

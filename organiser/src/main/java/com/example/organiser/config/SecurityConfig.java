@@ -27,10 +27,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .addFilter(digestAuthenticationFilter()) 
             .exceptionHandling().authenticationEntryPoint(digestEntryPoint())
             .and()
-            .authorizeRequests().antMatchers("/api/**").permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
+            .authorizeRequests().antMatchers("/api/auth/registration").permitAll()
+            .anyRequest().authenticated();
+            //.and()
+            //.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
         // http.csrf().disable().cors()
         // .and()
         // .authorizeRequests().antMatchers("/**").permitAll()

@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({ "password", "events", "things", "listsToDo", "serialVersionUID", "accountNonExpired", "accountNonLocked",
+@JsonIgnoreProperties({  "events", "things", "listsToDo", "serialVersionUID", "accountNonExpired", "accountNonLocked",
         "credentialsNonExpired", "enabled", "username" })
 @Entity
 @Table(name = "users")

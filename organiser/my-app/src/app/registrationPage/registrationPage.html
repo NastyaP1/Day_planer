@@ -10,24 +10,33 @@
                     <h2>Register</h2>
                     <h4 class="font-weight-light">Hello! let's get started</h4>
                     <form class="pt-4">
-                      <form>
+                      <form  #regForm="ngForm" (ngSubmit)="registrater(regForm)">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Username</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                          <label for="username">Логин или e-mail</label>
+                          <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            class="form-input form-input--pill form-input--border-c-gallery"
+                            required [(ngModel)]="username"
+                            placeholder="johndoe"
+                          >
                           <i class="mdi mdi-account"></i>
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                          <i class="mdi mdi-eye"></i>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword2">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm password">
+                          <label for="login-password">Пароль</label>
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="form-input form-input--pill form-input--border-c-gallery"
+                            required  [(ngModel)]="password"
+                            placeholder="******"
+                          >
                           <i class="mdi mdi-eye"></i>
                         </div>
                         <div class="mt-5">
-                          <a class="btn btn-block btn-primary btn-lg font-weight-medium" href="../../index.html">Register</a>
+                          <a class="btn btn-block btn-primary btn-lg font-weight-medium" routerLink="/logInPage"  (click) ="registrater(regForm)">Register</a>
                         </div>
                         <div class="mt-2 w-75 mx-auto">
                           <div class="form-check form-check-flat">
@@ -38,7 +47,7 @@
                           </div>
                         </div>
                         <div class="mt-2 text-center">
-                          <a href="login.html" class="auth-link text-black">Already have an account? <span class="font-weight-medium">Sign in</span></a>
+                          <a  class="auth-link text-black">Already have an account? <span class="font-weight-medium">Sign in</span></a>
                         </div>
                       </form>                  
                     </form>

@@ -30,6 +30,9 @@ public class UserController {
 
     @GetMapping(path = "/")
     public User getUser(Principal principal) {
+        System.out.println("Name: \"" + principal.getName() + "\"");
+        userRepository.findByName(principal.getName()).get();
+
         return userRepository.findByName(principal.getName()).get();
     }
 

@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/domens/user';
 import { DataService } from '../services/data.service';
+import { Http2ServerRequest } from 'http2';
 
 @Component({
     templateUrl: './logInPage.html',
@@ -44,12 +45,14 @@ export class LoginPageComponent implements OnInit {
 
     //первый запрос на получения nonce и realm
     ngOnInit() {
+        sessionStorage.removeItem("authHeader");
+        console.log(sessionStorage.getItem("authHeader"));
     this.firstDigestRequest();
     }
 
     firstDigestRequest() {
-    this.uri = 'auth/login';
-    this.url = 'http://localhost:8182/auth/login';
+    this.uri = 'api/auth/login';
+    this.url = 'http://localhost:8182/api/auth/login';
     this.method = 'GET';
     this.nc = 1;
 
@@ -65,6 +68,8 @@ export class LoginPageComponent implements OnInit {
         for (let i = 0; i < digestHeaderArgs.length; i++) {
         const equalIndex = digestHeaderArgs[i].indexOf('=');
 
+
+
         const key = digestHeaderArgs[i].substring(0, equalIndex);
         let val = digestHeaderArgs[i].substring(equalIndex + 1);
         val = val.replace(/['"]+/g, '');
@@ -79,7 +84,10 @@ export class LoginPageComponent implements OnInit {
             this.qop = val;
         }
         }
+
+        //console.log("dddd" + this.nonce, this.realm);
     }
+
     }
 
     //после ввода данных пользователем, собираем все вместе => MD5(...) => GET обратно на сервер => получаем данные
