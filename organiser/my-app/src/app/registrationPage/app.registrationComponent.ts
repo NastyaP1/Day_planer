@@ -28,7 +28,7 @@ export class RegistrationPageComponent implements OnInit{
         //console.log(t);
         //console.log(JSON.stringify({name: this.username, password: CryptoJS.MD5(this.password).toString(),email:" ", avatar: " "}));
         requestReg.setRequestHeader('Content-Type','application/json');
-        requestReg.send(JSON.stringify({name: this.username, password: this.password ,email:" ",
+        requestReg.send(JSON.stringify({name: this.username, password: CryptoJS.MD5(this.password).toString() ,email:" ",
          avatar: " ", accountNonExpired: true ,accountNonLocked: true, credentialsNonExpired: true, enabled: true}));
         console.log("response" + requestReg.response);
     }

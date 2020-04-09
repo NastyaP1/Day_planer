@@ -316,5 +316,12 @@
           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </li>
+
+      <!-- Button to logout-->
+      <li class="setting">
+        <i class="fa fa-power-off setting__icon"></i>
+        <a routerLink="/signInPage" (click)="logOut()"  class="setting__link">ВЫЙТИ</a>
+      </li>
     </ul>
+    
   </nav>

@@ -8,4 +8,9 @@ import { Component, OnInit } from "@angular/core";
 export class SideBarComponent implements OnInit{
     constructor(){}
     ngOnInit(){}
+    public logOut(){
+        sessionStorage.removeItem("authHeader");
+        console.log("You have been successfully log out");
+      }
+    
 }
