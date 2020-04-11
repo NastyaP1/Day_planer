@@ -4,7 +4,7 @@ import { DataService } from 'src/app/services/data.service';
 import { User } from 'src/app/domens/user';
 import { HttpService } from '../services/http.service';
 import { Thing } from '../domens/thing';
-import { ThingService } from '../services/thingService';
+import { ThingService } from '../services/thing.service';
 
 @Component({
   templateUrl: './profilePage.html',
@@ -47,7 +47,6 @@ export class ProfilePageComponent implements OnInit {
       console.log("smth wrong");
     }
     this.thingService.getAll().subscribe(data =>{this.things = data;});
-
    
   }
 

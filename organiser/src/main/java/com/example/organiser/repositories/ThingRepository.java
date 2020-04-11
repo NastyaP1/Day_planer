@@ -1,6 +1,5 @@
 package com.example.organiser.repositories;
 
-import com.example.organiser.entities.ListToDo;
 import com.example.organiser.entities.Thing;
 
 import org.springframework.data.jpa.repository.JpaRepository;

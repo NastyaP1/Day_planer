@@ -34,11 +34,11 @@ public class Thing {
     @SequenceGenerator(name = "thing_id_seq", sequenceName = "thing_thing_id_seq", allocationSize = 1, initialValue = 100)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "thing_id_seq")
     @Column(name = "thing_id")
-    private Integer thing_id;
+    private Integer id;
 
     @JsonProperty(value = "name")
     @Column(name = "thing_name")
-    private String ame;
+    private String name;
 
     @JsonProperty(value = "description")
     @Column(name = "thing_description")

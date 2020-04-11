@@ -3,9 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ListToDo} from "../domens/listToDo";
 
-{
-providedIn: 'root'
-}
+@Injectable({
+    providedIn: 'root'
+  })
 export class ListToDoService {
 private listToDoUrl : string;
 

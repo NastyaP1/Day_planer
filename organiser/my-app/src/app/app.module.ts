@@ -9,6 +9,7 @@ import { SidebarModule } from 'ng-sidebar';
 import {AgmCoreModule, MapsAPILoader, MouseEvent, AgmMap  } from '@agm/core';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
+import { ThingService } from 'src/app/services/thing.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -73,7 +74,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       component: AppComponent
     }]),
   ],
-  providers: [DataService, UserService, HttpService],
+  providers: [DataService, UserService, HttpService,ThingService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,6 +14,7 @@ import com.example.organiser.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -55,7 +56,7 @@ public class UserController {
         return savedUser;
     }
 
-    @GetMapping(path = "/{user_id}/lists/{list_id}/things")
+    @GetMapping(path = "/{user_id}/lists/{list_id}/things/")
     public Iterable<Thing> getThingsByList(@PathVariable(name = "list_id") String listId) {
         Integer list = listRepository.findAllById(Integer.parseInt(listId)).getId();
         return thingRepository.findAllByListId(list);
@@ -72,6 +73,49 @@ public class UserController {
         User user = userRepository.findById(Integer.parseInt(userId)).get();
         return eventRepository.findAllByOwner(user);
     }
+
+    @PutMapping(path = "/{user_id}/lists/")
+    public ListToDo saveList(@PathVariable(name = "user_id") String userId, @RequestBody ListToDo list) {
+        User user = userRepository.findById(Integer.parseInt(userId)).get();
+        list.setOwner(user);
+        ListToDo savedList = listRepository.saveAndFlush(list);
+        return savedList;
+    }
+
+    @DeleteMapping(path = "/{user_id}/lists/{list_id}")
+    public String deleteList(@PathVariable(name = "user_id") String listId) {
+        listRepository.deleteById(Integer.parseInt(listId));
+        return listRepository.existsById(Integer.parseInt(listId)) ? "error" : "deleted";
+    }
+
+    @PutMapping(path = "/{user_id}/events/")
+    public Event saveEvent(@PathVariable(name = "user_id") String userId, @RequestBody Event event) {
+        User user = userRepository.findById(Integer.parseInt(userId)).get();
+        event.setOwner(user);
+        Event savedEvent = eventRepository.saveAndFlush(event);
+        return savedEvent;
+    }
+
+    @DeleteMapping(path = "/{user_id}/events/{event_id}")
+    public String deleteEvent(@PathVariable(name = "user_id") String eventId) {
+        eventRepository.deleteById(Integer.parseInt(eventId));
+        return eventRepository.existsById(Integer.parseInt(eventId)) ? "error" : "deleted";
+    }
+
+    @PutMapping(path = "/{user_id}/lists/{list_id}/things/")
+    public Thing saveThing(@PathVariable(name = "user_id") String userId, @RequestBody Thing thing) {
+        User user = userRepository.findById(Integer.parseInt(userId)).get();
+        thing.setOwner(user);
+        Thing savedThing = thingRepository.saveAndFlush(thing);
+        return savedThing;
+    }
+
+    @DeleteMapping(path = "/{user_id}/lists/{list_id}/things/{thing_id}")
+    public String deleteThing(@PathVariable(name = "user_id") String thingId) {
+        thingRepository.deleteById(Integer.parseInt(thingId));
+        return thingRepository.existsById(Integer.parseInt(thingId)) ? "error" : "deleted";
+    }
+
 
 
     /*@PutMapping(path = "/{user_id}")
