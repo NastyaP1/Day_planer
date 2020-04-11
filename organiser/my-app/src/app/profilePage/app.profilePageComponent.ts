@@ -2,18 +2,29 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone, Input, Output, EventE
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 import { DataService } from 'src/app/services/data.service';
 import { User } from 'src/app/domens/user';
+import { HttpService } from '../services/http.service';
+import { Thing } from '../domens/thing';
+import { ThingService } from '../services/thingService';
 
 @Component({
   templateUrl: './profilePage.html',
   styleUrls: ['./app.profilePageComponent.scss'],
   providers: [DataService]
 })
+@Injectable()
 export class ProfilePageComponent implements OnInit {
 
   userFromBack;
   responseText;
+  thing;
+  responseThing;
+  things:Thing[];
 
-  constructor(private data: DataService) { }
+  constructor(
+    private data: DataService,
+    private httpService: HttpService,
+    private thingService:ThingService
+    ) { }
 
   ngOnInit() {
     const con = new XMLHttpRequest();
@@ -24,6 +35,7 @@ export class ProfilePageComponent implements OnInit {
     console.log(header);
 
     con.setRequestHeader('Authorization', header);
+
     con.send();
 
     if (con.status === 200) {
@@ -34,6 +46,32 @@ export class ProfilePageComponent implements OnInit {
     else {
       console.log("smth wrong");
     }
+    this.thingService.getAll().subscribe(data =>{this.things = data;});
+
+   
+  }
+
+
+  public getAllThing(){
+    //this.thingService.getAll().subscribe(data =>{this.things = data;});
+    console.log("things" + this.things);
+    if (this.things){
+      console.log(this.things[0]);
+    }
+    /*const cont = new XMLHttpRequest();
+    console.log(this.responseText.id);
+    cont.open('GET', 'http://localhost:8182/api/user/'+ this.responseText.id +'/things/', false);
+    //cont.setRequestHeader('Content-Type','application/json');
+    //cont.responseType = "text";
+    cont.send();
+    //if (cont.status === 200) {
+      this.thing = cont.response;
+      this.responseThing =  JSON.parse(this.thing);
+      console.log('OK \n' + this.thing);
+    //}
+    //else {
+      console.log("can't get things");
+   // }*/
   }
 
   // user: User = new User("", "Иван", "Москва", "ivan@gmail.com", 89515555555, "", "", "ivan01", "hhhh");

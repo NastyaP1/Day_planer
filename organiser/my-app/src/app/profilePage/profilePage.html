@@ -105,6 +105,24 @@
           Сохранить
         </button>
       </div>
+
+      <div class="mt-5">
+        <a class="btn btn-block btn-success btn-lg font-weight-medium" (click) ="getAllThing()"
+        >getThings</a>
+      </div>
+
+      <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Club</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let thing of things">
+          <td>{{ thing.name }}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div><!-- row -->
 </form>

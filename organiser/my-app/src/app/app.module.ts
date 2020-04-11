@@ -29,6 +29,8 @@ import {
 } from "ng-gapi";
 
 import {DataService} from 'src/app/services/data.service';
+
+import {HttpService} from 'src/app/services/http.service';
 import {RouterModule} from '@angular/router';
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -71,7 +73,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       component: AppComponent
     }]),
   ],
-  providers: [DataService, UserService],
+  providers: [DataService, UserService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,6 +13,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@JsonIgnoreProperties({ "user_id", "list_id"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -32,11 +34,11 @@ public class Thing {
     @SequenceGenerator(name = "thing_id_seq", sequenceName = "thing_thing_id_seq", allocationSize = 1, initialValue = 100)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "thing_id_seq")
     @Column(name = "thing_id")
-    private Integer id;
+    private Integer thing_id;
 
     @JsonProperty(value = "name")
     @Column(name = "thing_name")
-    private String name;
+    private String ame;
 
     @JsonProperty(value = "description")
     @Column(name = "thing_description")
