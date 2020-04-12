@@ -5,6 +5,7 @@ import com.example.organiser.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -26,8 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .addFilter(digestAuthenticationFilter()) 
             .exceptionHandling().authenticationEntryPoint(digestEntryPoint())
+            
             .and()
             .authorizeRequests().antMatchers("/api/auth/registration").permitAll()
+            .antMatchers(HttpMethod.GET,"/things/**").permitAll()
+            .and()
+            .authorizeRequests().antMatchers("/api/user/**").permitAll()
             .anyRequest().authenticated();
             //.and()
             //.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();

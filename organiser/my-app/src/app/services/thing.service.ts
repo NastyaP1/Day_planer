@@ -3,14 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Thing} from "../domens/thing";
 
-{
-providedIn: 'root'
-}
+@Injectable({
+    providedIn: 'root'
+})
 export class ThingService {
 private thingUrl : string;
 
 constructor(private http: HttpClient) {
-this.thingUrl = "http://localhost:8182/api/user/3/lists/2/things/";
+this.thingUrl = "http://localhost:8182/api/user/3/lists/1/things/";
 }
 getById(id) : Observable<Thing>{
 return this.http.get<Thing>(this.thingUrl + id);

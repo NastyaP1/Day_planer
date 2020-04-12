@@ -3,9 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Event} from "../domens/event";
 
-{
-providedIn: 'root'
-}
+@Injectable({
+    providedIn: 'root'
+  })
 export class EventService {
 private eventUrl : string;
 
