@@ -11,15 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { ThingService } from 'src/app/services/thing.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BoardUserComponent } from './board-user/board-user.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './loginPage/app.loginComponent';
+import { LoginPageComponent } from './logInPage/app.loginComponent';
 import {RegistrationPageComponent} from './registrationPage/app.registrationComponent';
 import {ProfilePageComponent} from './profilePage/app.profilePageComponent';
 import {SideBarComponent} from './sideBar/app.sideBarComponent';
 import {FooterComponent} from './footer/app.footerComponent';
-
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import {
   GoogleApiModule,
   GoogleApiService,
@@ -52,7 +53,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     RegistrationPageComponent,
     SideBarComponent,
     FooterComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       component: AppComponent
     }]),
   ],
-  providers: [DataService, UserService, HttpService,ThingService ],
+  providers: [DataService, UserService, HttpService,ThingService,authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

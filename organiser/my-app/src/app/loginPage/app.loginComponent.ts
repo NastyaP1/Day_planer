@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { User } from 'src/app/domens/user';
 import { DataService } from '../services/data.service';
 import { Http2ServerRequest } from 'http2';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
     templateUrl: './logInPage.html',
@@ -56,8 +57,12 @@ export class LoginPageComponent implements OnInit {
     this.method = 'GET';
     this.nc = 1;
 
-    const request = new XMLHttpRequest();
+
+    const request = new XMLHttpRequest( );
     request.open('GET', this.url, false);
+    //request.setRequestHeader("Access-Control-Allow-Origin", "*");
+    //request.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers");
+    request.setRequestHeader("Access-Control-Allow-Headers", "Authorization");
     request.send();
 
     if (request.status === 401) {

@@ -1,65 +1,65 @@
 <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper">
-      <div class="row">
-        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth">
-          <div class="row w-100">
-            <div class="col-lg-8 mx-auto">
-              <div class="row">
-                <div class="col-lg-6 bg-white">
-                  <div class="auth-form-light text-left p-5">
-                    <h2>Register</h2>
-                    <h4 class="font-weight-light">Hello! let's get started</h4>
-                    <form class="pt-4">
-                      <form  #regForm="ngForm" (ngSubmit)="registrater(regForm)">
-                        <div class="form-group">
-                          <label for="username">Логин или e-mail</label>
-                          <input
-                            type="text"
-                            name="username"
-                            id="username"
-                            class="form-input form-input--pill form-input--border-c-gallery"
-                            required [(ngModel)]="username"
-                            placeholder="johndoe"
-                          >
-                          <i class="mdi mdi-account"></i>
+  <div class="container-fluid page-body-wrapper">
+    <div class="row">
+      <div class="content-wrapper full-page-wrapper d-flex align-items-center auth">
+        <div class="row w-100">
+          <div class="col-lg-8 mx-auto">
+            <div class="row">
+              <div class="col-lg-6 bg-white">
+                <div class="auth-form-light text-left p-5">
+                  <h2>Register</h2>
+                  <h4 class="font-weight-light">Hello! let's get started</h4>
+                  <form class="pt-4">
+                    <form  #regForm="ngForm" (ngSubmit)="registrater(regForm)">
+                      <div class="form-group">
+                        <label for="username">Логин или e-mail</label>
+                        <input
+                          type="text"
+                          name="username"
+                          id="username"
+                          class="form-input form-input--pill form-input--border-c-gallery"
+                          required [(ngModel)]="username"
+                          placeholder="johndoe"
+                        >
+                        <i class="mdi mdi-account"></i>
+                      </div>
+                      <div class="form-group">
+                        <label for="login-password">Пароль</label>
+                        <input
+                          type="password"
+                          name="password"
+                          id="password"
+                          class="form-input form-input--pill form-input--border-c-gallery"
+                          required  [(ngModel)]="password"
+                          placeholder="******"
+                        >
+                        <i class="mdi mdi-eye"></i>
+                      </div>
+                      <div class="mt-5">
+                        <a class="btn btn-block btn-primary btn-lg font-weight-medium" routerLink="/logInPage"  (click) ="registrater(regForm)">Register</a>
+                      </div>
+                      <div class="mt-2 w-75 mx-auto">
+                        <div class="form-check form-check-flat">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            I accept terms and conditions
+                          </label>
                         </div>
-                        <div class="form-group">
-                          <label for="login-password">Пароль</label>
-                          <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            class="form-input form-input--pill form-input--border-c-gallery"
-                            required  [(ngModel)]="password"
-                            placeholder="******"
-                          >
-                          <i class="mdi mdi-eye"></i>
-                        </div>
-                        <div class="mt-5">
-                          <a class="btn btn-block btn-primary btn-lg font-weight-medium" routerLink="/logInPage"  (click) ="registrater(regForm)">Register</a>
-                        </div>
-                        <div class="mt-2 w-75 mx-auto">
-                          <div class="form-check form-check-flat">
-                            <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input">
-                              I accept terms and conditions
-                            </label>
-                          </div>
-                        </div>
-                        <div class="mt-2 text-center">
-                          <a  class="auth-link text-black">Already have an account? <span class="font-weight-medium">Sign in</span></a>
-                        </div>
-                      </form>                  
-                    </form>
-                  </div>
+                      </div>
+                      <div class="mt-2 text-center">
+                        <a  class="auth-link text-black">Already have an account? <span class="font-weight-medium">Sign in</span></a>
+                      </div>
+                    </form>                  
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
       </div>
-      <!-- row ends -->
+      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- row ends -->
   </div>
+  <!-- page-body-wrapper ends -->
+</div>

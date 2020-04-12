@@ -5,6 +5,9 @@ import { User } from 'src/app/domens/user';
 import { HttpService } from '../services/http.service';
 import { Thing } from '../domens/thing';
 import { ThingService } from '../services/thing.service';
+import { ListToDo } from '../domens/listToDo';
+import { TokenStorageService } from '../_services/token-storage.service';
+import { ListToDoService } from '../services/listToDo.service';
 
 @Component({
   templateUrl: './profilePage.html',
@@ -13,8 +16,7 @@ import { ThingService } from '../services/thing.service';
 })
 @Injectable()
 export class ProfilePageComponent implements OnInit {
-
-  userFromBack;
+userFromBack;
   responseText;
   thing;
   responseThing;
@@ -70,7 +72,7 @@ export class ProfilePageComponent implements OnInit {
     //}
     //else {
       console.log("can't get things");
-   // }*/
+   // }
   }
 
   // user: User = new User("", "Иван", "Москва", "ivan@gmail.com", 89515555555, "", "", "ivan01", "hhhh");
@@ -121,5 +123,6 @@ export class ProfilePageComponent implements OnInit {
   //     this.rating.push(rating);
   //     this.types.push(types);
   //   });
-  // }
+  // }*/
+}
 }

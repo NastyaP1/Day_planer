@@ -14,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIgnoreProperties({"user_id"})
 @Table(name = "lists")
 public class ListToDo {
     
@@ -45,7 +47,7 @@ public class ListToDo {
     @JoinColumn(name = "user_id")
     private User owner;
 
-    @OneToMany(mappedBy = "list")
+    /*@OneToMany(mappedBy = "list")
     @Column(name = "list_things")
-    private List<Thing> things;
+    private List<Thing> things;*/
 }

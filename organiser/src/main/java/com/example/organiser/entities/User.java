@@ -9,80 +9,143 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@JsonIgnoreProperties({  "events", "things", "listsToDo", "serialVersionUID",  "username" })
+import java.util.HashSet;
+
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
-@Table(name = "users")
+@NoArgsConstructor
+@JsonIgnoreProperties({"listsToDo", "serialVersionUID",  "username" })
+@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
+		@UniqueConstraint(columnNames = "email") })
 public class User implements UserDetails {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @SequenceGenerator(name = "user_seq", sequenceName = "users_user_id_seq", allocationSize = 1, initialValue = 100)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @Column(name = "user_id")
-    private Integer id;
+	@NotBlank
+	@Size(max = 20)
+	@Column(name = "username")
+	private String username;
 
-    @Column(name = "user_name")
-    private String name;
+	@NotBlank
+	@Size(max = 120)
+	@Column(name = "password")
+	private String password;
 
-    @Column(name = "user_password")
-    private String password;
+	@Column(name = "email")
+	@NotBlank
+	@Size(max = 50)
+	@Email
+	private String email;
 
-    @Column(name = "user_email")
-    private String email;
+	@Column(name = "avatar")
+	private String avatar;
 
-    @Column(name = "user_avatar")
-    private String avatar;
+	/*
+	 * @OneToMany(mappedBy = "owner")
+	 * 
+	 * @Column(name = "user_events") private Set<Event> events;
+	 * 
+	 * @OneToMany(mappedBy = "owner")
+	 * 
+	 * @Column(name = "user_things") private Set<Thing> things;
+	 */
 
-    @OneToMany(mappedBy = "owner")
-    @Column(name = "user_events")
-    private Set<Event> events;
+	@OneToMany(mappedBy = "owner")
+	@Column(name = "user_lists_to_do")
+	private Set<ListToDo> listsToDo;
 
-    @OneToMany(mappedBy = "owner")
-    @Column(name = "user_things")
-    private Set<Thing> things;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "owner")
-    @Column(name = "user_lists_to_do")
-    private Set<ListToDo> listsToDo;
+	public User(String username, String email, String password, String avatar) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
 
-    @Column(name = "user_expired")
-    private boolean accountNonExpired;
+	public Long getId() {
+		return id;
+	}
 
-    @Column(name = "user_non_locked")
-    private boolean accountNonLocked;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Column(name = "user_credentials_non_expired")
-    private boolean credentialsNonExpired;
+	public String getUsername() {
+		return username;
+	}
 
-    @Column(name = "user_enable")
-    private boolean enabled;
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    @Override
-    public String getUsername() {
-        return this.getName();
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        return null;
+    public boolean isAccountNonLocked() {
+        return true;
     }
 
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+	@Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

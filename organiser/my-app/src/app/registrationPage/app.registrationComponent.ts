@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { User } from '../domens/user';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
     templateUrl: './registrationPage.html',
@@ -34,4 +35,4 @@ export class RegistrationPageComponent implements OnInit{
     }
     ngOnInit(){
     }
-}
+  }
