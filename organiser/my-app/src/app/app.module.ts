@@ -15,9 +15,9 @@ import { BoardUserComponent } from './board-user/board-user.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './logInPage/app.loginComponent';
-import {RegistrationPageComponent} from './registrationPage/app.registrationComponent';
-import {ProfilePageComponent} from './profilePage/app.profilePageComponent';
+import { LoginPageComponent } from './login/app.loginComponent';
+import {RegistrationPageComponent} from './register/app.registrationComponent';
+import {ProfilePageComponent} from './profile/app.profilePageComponent';
 import {SideBarComponent} from './sideBar/app.sideBarComponent';
 import {FooterComponent} from './footer/app.footerComponent';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';

@@ -29,6 +29,11 @@ export class AppComponent {
     }
   }
 
+  logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+}
+
   
   title = 'organiser-app';
 }
