@@ -1,0 +1,29 @@
+//crud functions to subcribe data from back
+
+    private listService:ListToDoService
+    private thingService:ThingService
+    private eventService:EventService
+
+    lists:ListToDo[];
+    list: ListToDo;
+
+    events:Event[];
+    event: Event;
+
+    things:Thing[];
+    thing: Thing;
+
+    this.listService.getAll().subscribe(data =>{this.lists = data;});
+    this.listService.addList(this.list).subscribe(data =>{this.lists.push(data);});
+    this.listService.deleteById(this.list.id).subscribe(data => console.log(data));
+    this.listService.getById(this.list.id).subscribe(data =>{this.list = data;});
+
+    this.eventService.getAll().subscribe(data =>{this.events = data;});
+    this.eventService.addEvent(this.event).subscribe(data =>{this.events.push(data);});
+    this.eventService.deleteById(this.event.id).subscribe(data => console.log(data));
+    this.eventService.getById(this.event.id).subscribe(data =>{this.event = data;});
+
+    this.thingService.getAllByListId(this.list.id).subscribe(data =>{this.things = data;});
+    this.thingService.addthing(this.thing, this.list.id).subscribe(data =>{this.things.push(data);});
+    this.thingService.deleteById(this.event.id,  this.list.id).subscribe(data => console.log(data));
+    this.thingService.getById( this.list.id,this.event.id).subscribe(data =>{this.thing = data;});

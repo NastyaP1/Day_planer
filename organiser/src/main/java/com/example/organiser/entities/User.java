@@ -59,15 +59,14 @@ public class User implements UserDetails {
 	@Column(name = "avatar")
 	private String avatar;
 
-	/*
-	 * @OneToMany(mappedBy = "owner")
-	 * 
-	 * @Column(name = "user_events") private Set<Event> events;
-	 * 
-	 * @OneToMany(mappedBy = "owner")
-	 * 
-	 * @Column(name = "user_things") private Set<Thing> things;
-	 */
+	
+	@OneToMany(mappedBy = "owner")
+	@Column(name = "user_events") 
+	private Set<Event> events;
+	
+	@OneToMany(mappedBy = "owner")
+	@Column(name = "user_things") 
+	private Set<Thing> things;
 
 	@OneToMany(mappedBy = "owner")
 	@Column(name = "user_lists_to_do")

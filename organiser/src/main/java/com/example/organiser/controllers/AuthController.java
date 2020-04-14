@@ -205,7 +205,7 @@ public class AuthController {
 	}
 
 
-	@PutMapping(path = "/lists/{listId}/things/")
+	@PutMapping(path = "/lists/{listId}/things")
     public Thing saveThing(@PathVariable String listId, @RequestBody Thing thing) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
 		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
@@ -228,15 +228,9 @@ public class AuthController {
     }
 
     @GetMapping(path = "/lists/{listId}/things")
-    public Iterable<Thing> getThingssByListId( @PathVariable String listId) {
+    public Iterable<Thing> getThingsByListId( @PathVariable String listId) {
 		ListToDo list = listRepository.findById(Integer.parseInt(listId)).get();	
         return thingRepository.findAllByListId(list);
 	}
-    
-    @DeleteMapping(path = "/{user_id}/lists/{list_id}/things/{thing_id}")
-    public String deleteThing(@PathVariable(name = "user_id") String thingId) {
-        thingRepository.deleteById(Integer.parseInt(thingId));
-        return thingRepository.existsById(Integer.parseInt(thingId)) ? "error" : "deleted";
-    }
 }
 
