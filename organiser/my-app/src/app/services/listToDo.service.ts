@@ -8,31 +8,30 @@ import { TokenStorageService } from '../_services/token-storage.service';
     providedIn: 'root'
   })
 export class ListToDoService {
-private listToDoUrl : string;
-currentUser: any;
+  private listToDoUrl : string;
+  currentUser: any;
 
-constructor(
-  private http: HttpClient,
-  private token: TokenStorageService
-  ) {
-this.currentUser = this.token.getUser();
-this.listToDoUrl = "http://localhost:8181/api/auth/lists";
-//this.listToDoUrl = "http://localhost:8080/api/auth/" + this.currentUser.id +"/lists/"; 
+  constructor(
+    private http: HttpClient,
+    private token: TokenStorageService
+  ) 
+  {
+    this.currentUser = this.token.getUser();
+    this.listToDoUrl = "http://localhost:8181/api/auth/lists";
+  }
+  getById(id) : Observable<ListToDo>{
+    return this.http.get<ListToDo>(this.listToDoUrl + '/'+ id);
+  }
 
-}
-getById(id) : Observable<ListToDo>{
-return this.http.get<ListToDo>(this.listToDoUrl + '/'+ id);
-}
+  addList(list: ListToDo) {
+    return this.http.put<ListToDo>(this.listToDoUrl, list);
+  }
 
-addList(list: ListToDo) {
-  return this.http.put<ListToDo>(this.listToDoUrl, list);
-}
+  deleteById(id: number) {
+    return this.http.delete(this.listToDoUrl+'/'+id);
+  }
 
-deleteById(id: number) {
-  return this.http.delete(this.listToDoUrl+'/'+id);
-}
-
-getAll(): Observable<ListToDo[]>{
-return this.http.get<ListToDo[]>(this.listToDoUrl);
-}
+  getAll(): Observable<ListToDo[]>{
+    return this.http.get<ListToDo[]>(this.listToDoUrl);
+  }
 }
