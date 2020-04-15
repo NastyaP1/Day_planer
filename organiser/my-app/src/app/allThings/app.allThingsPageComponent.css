@@ -1,6 +1,9 @@
 .tab-pane{
   margin-left: 20%;
 }
+.fa-trash-o:before {
+  content: "";
+  }
 
 @-moz-keyframes flash {
     0% {

@@ -23,6 +23,7 @@ import {AllThingsPageComponent} from './allThings/app.allThingsPageComponent';
 import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {FooterComponent} from './footer/app.footerComponent';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import {ThingInformComponent} from './thingInfo/app.thingInfoComponent';
 import {
   GoogleApiModule,
   GoogleApiService,
@@ -58,7 +59,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     ProfilePageComponent,
     BoardUserComponent,
     AllThingsPageComponent,
-    DayThingsPageComponent
+    DayThingsPageComponent,
+    ThingInformComponent
   ],
   imports: [
     BrowserModule,
