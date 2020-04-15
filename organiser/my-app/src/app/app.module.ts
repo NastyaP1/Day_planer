@@ -19,6 +19,8 @@ import { LoginPageComponent } from './login/app.loginComponent';
 import {RegistrationPageComponent} from './register/app.registrationComponent';
 import {ProfilePageComponent} from './profile/app.profilePageComponent';
 import {SideBarComponent} from './sideBar/app.sideBarComponent';
+import {AllThingsPageComponent} from './allThings/app.allThingsPageComponent';
+import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {FooterComponent} from './footer/app.footerComponent';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import {
@@ -54,7 +56,9 @@ let gapiClientConfig: NgGapiClientConfig = {
     SideBarComponent,
     FooterComponent,
     ProfilePageComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    AllThingsPageComponent,
+    DayThingsPageComponent
   ],
   imports: [
     BrowserModule,
