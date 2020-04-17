@@ -6,6 +6,7 @@ import {ProfilePageComponent} from './profile/app.profilePageComponent';
 import { BoardUserComponent } from './board-user/board-user.component';
 import {AllThingsPageComponent} from './allThings/app.allThingsPageComponent';
 import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
+import {AddThingPageComponent} from './addThing/app.addThingPageComponent';
 
 const routes: Routes = [{
   path: 'login',
@@ -30,6 +31,11 @@ const routes: Routes = [{
 {
   path: 'dayThings',
   component: DayThingsPageComponent
+},
+
+{
+  path: 'addThing',
+  component: AddThingPageComponent
 },
 
 { path: 'user', component: BoardUserComponent },

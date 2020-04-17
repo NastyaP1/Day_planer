@@ -1,0 +1,29 @@
+<sideBar></sideBar>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Добавление дела</h4>
+        <form class="forms-sample">
+          <div class="form-group">
+            <label for="exampleInputName1">Назваие</label>
+            <input type="text" class="form-control" id="exampleInputName1" placeholder="Название">
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea1">Описание</label>
+            <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
+          </div>
+          <div class="input-group date datepicker">
+            <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                    [(ngModel)]="model" required></my-date-picker>
+                  </div>
+            
+          <div class="input-group clockpicker">
+            <input atp-time-picker value="19:00"/>
+          </div>
+
+          <button type="submit" class="btn btn-success mr-2">Submit</button>
+          <button class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
