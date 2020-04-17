@@ -22,6 +22,7 @@ import {SideBarComponent} from './sideBar/app.sideBarComponent';
 import {AllThingsPageComponent} from './allThings/app.allThingsPageComponent';
 import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {FooterComponent} from './footer/app.footerComponent';
+import {HeaderComponent} from './header/app.headerComponent';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import {ThingInformComponent} from './thingInfo/app.thingInfoComponent';
 import {
@@ -56,6 +57,7 @@ let gapiClientConfig: NgGapiClientConfig = {
     RegistrationPageComponent,
     SideBarComponent,
     FooterComponent,
+    HeaderComponent,
     ProfilePageComponent,
     BoardUserComponent,
     AllThingsPageComponent,
