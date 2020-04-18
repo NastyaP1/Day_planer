@@ -4,7 +4,7 @@ export class Thing {
   public description: string,
   public date: string,
   public state: string,
-  public id?: number,
+  public listId?: number,
+  public id?: number
   ) {}
   }
-  

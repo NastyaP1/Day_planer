@@ -52,4 +52,7 @@ window.location.replace("http://localhost:4200/allThings");
 
 );
 }
+deleteList(i){
+    this.listService.deleteById(i).subscribe(data => console.log(data));
+    }
 }

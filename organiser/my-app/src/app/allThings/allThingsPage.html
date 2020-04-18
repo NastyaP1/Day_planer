@@ -7,7 +7,7 @@
 <div [ngClass]="{invisible: visibility}" class="card info-form  mb-5">
   <div class="card-body">
     <!-- <button class="btn btn-secondary">Закрыть</button> -->
-    <a><i class="fa fa-times" aria-hidden="true"></i></a>
+    <a><i class="fa fa-times" aria-hidden="true" (click)="delete(thing.id, i)"></i></a>
     <h2>{{name}}</h2>
     <p>{{description}}</p>
     <p>{{date}}</p>
