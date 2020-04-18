@@ -171,6 +171,11 @@ public class AuthController {
 
     @DeleteMapping(path = "/lists/{listId}")
     public String deleteList(@PathVariable String listId) {
+		ListToDo list = listRepository.findAllById(Integer.parseInt(listId));
+		Iterable<Thing> th =thingRepository.findAllByList(list);
+		for(Thing t: th){
+			thingRepository.deleteById(t.getId());
+		}
         listRepository.deleteById(Integer.parseInt(listId));
         return listRepository.existsById(Integer.parseInt(listId)) ? "error" : "deleted";
     }
@@ -220,7 +225,7 @@ public class AuthController {
 
     @DeleteMapping(path = "/lists/{listId}/things/{thingId}")
     public String deleteThing(@PathVariable String thingId, @PathVariable String listId) {
-        thingRepository.deleteById(Integer.parseInt(listId));
+        thingRepository.deleteById(Integer.parseInt(thingId));
         return thingRepository.existsById(Integer.parseInt(thingId)) ? "error" : "deleted";
 	}
 	
@@ -244,5 +249,6 @@ public class AuthController {
 		User user = userRepository.findById(us.getId()).get();	
         return thingRepository.findAllByOwner(user);
 	}
+
 }
 

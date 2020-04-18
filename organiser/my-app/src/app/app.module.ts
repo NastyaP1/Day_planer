@@ -2,9 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ViewChild, ElementRef, NgZone} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AmazingTimePickerModule } from 'amazing-time-picker'; 
-import { MyDatePickerModule } from 'mydatepicker';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import { ColorSketchModule } from 'ngx-color/sketch';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -17,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ThingService } from 'src/app/services/thing.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BoardUserComponent } from './board-user/board-user.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,8 +27,6 @@ import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {FooterComponent} from './footer/app.footerComponent';
 import {HeaderComponent} from './header/app.headerComponent';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import {AddThingPageComponent} from './addThing/app.addThingPageComponent';
-import {AddListPageComponent} from './addList/app.addListPageComponent';
 import {
   GoogleApiModule,
   GoogleApiService,
@@ -44,6 +40,8 @@ import {DataService} from 'src/app/services/data.service';
 
 import {HttpService} from 'src/app/services/http.service';
 import {RouterModule} from '@angular/router';
+import { AddListPageComponent } from './addList/app.addListPageComponent';
+import { AddThingPageComponent } from './addThing/app.addThingPageComponent';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "951523443973-82b3n43cgkbntlrv9gcucinukkl5n36a.apps.googleusercontent.com",
@@ -75,9 +73,6 @@ let gapiClientConfig: NgGapiClientConfig = {
     BrowserModule,
     AmazingTimePickerModule,
     MyDatePickerModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
-    ColorSketchModule,
     AppRoutingModule,
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,

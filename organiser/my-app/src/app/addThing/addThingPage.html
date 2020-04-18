@@ -1,4 +1,4 @@
-<!— <sideBar></sideBar> —>
+
 <div class="col-md-6 grid-margin stretch-card">
 <div class="card">
 <div class="card-body">
@@ -51,7 +51,7 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 </div>
 
 <button type="submit" class="btn btn-success mr-2" (click)="createThing(myform)">Submit</button>
-<button class="btn btn-light">Cancel</button>
+<button class="btn btn-light" routerLink="/allThings">Cancel</button>
 </form>
 </div>
 </div>

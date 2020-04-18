@@ -60,4 +60,8 @@ public class Thing {
     @ManyToOne
     @JoinColumn(name = "list_id")
     private ListToDo list;
+
+    public Integer getListId() {
+		return list.getId();
+	}
 }
