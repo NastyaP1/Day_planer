@@ -1,0 +1,58 @@
+<!— <sideBar></sideBar> —>
+<div class="col-md-6 grid-margin stretch-card">
+<div class="card">
+<div class="card-body">
+<h4 class="card-title">Добавление дела</h4>
+<form #myform="ngForm" class="forms-sample">
+<div class="form-group">
+<label for="exampleInputName1">Название</label>
+<input type="text"
+name="name"
+id="name"
+required
+[(ngModel)]="name"
+class="form-control"
+placeholder="Название">
+</div>
+<div class="form-group">
+<label for="exampleTextarea1">Описание</label>
+<textarea
+class="form-control"
+name="description"
+id="description"
+required [(ngModel)]="description"
+rows="2"></textarea>
+</div>
+<div class="input-group date datepicker">
+<my-date-picker
+[options]="myDatePickerOptions"
+name="date"
+id="date"
+required [(ngModel)]="date">
+</my-date-picker>
+</div>
+
+<div class="input-group clockpicker">
+<input
+name="time"
+id="time"
+required [(ngModel)]="time"
+tp-time-picker
+value="19:00"/>
+</div>
+
+<div lass="form-group">
+<label for="exampleSelectPrimary">Список</label>
+<select class="form-control border-primary" id="listname"
+required [(ngModel)]="listname" name="listname" #list="ngModel"
+>
+<option *ngFor="let list of lists, let i = index" [value]="list.id">{{list.name}}</option>
+</select>
+</div>
+
+<button type="submit" class="btn btn-success mr-2" (click)="createThing(myform)">Submit</button>
+<button class="btn btn-light">Cancel</button>
+</form>
+</div>
+</div>
+</div>

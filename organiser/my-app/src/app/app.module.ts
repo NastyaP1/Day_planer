@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ViewChild, ElementRef, NgZone} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { AmazingTimePickerModule } from 'amazing-time-picker'; 
+import { MyDatePickerModule } from 'mydatepicker';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { ColorSketchModule } from 'ngx-color/sketch';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { Ng5SliderModule } from 'ng5-slider';
@@ -25,9 +30,8 @@ import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {FooterComponent} from './footer/app.footerComponent';
 import {HeaderComponent} from './header/app.headerComponent';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import {ThingInformComponent} from './thingInfo/app.thingInfoComponent';
-import { AmazingTimePickerModule } from 'amazing-time-picker';
-
+import {AddThingPageComponent} from './addThing/app.addThingPageComponent';
+import {AddListPageComponent} from './addList/app.addListPageComponent';
 import {
   GoogleApiModule,
   GoogleApiService,
@@ -67,12 +71,16 @@ let gapiClientConfig: NgGapiClientConfig = {
     BoardUserComponent,
     AllThingsPageComponent,
     DayThingsPageComponent,
-    ThingInformComponent,
-    AddListPageComponent,
-    AddThingPageComponent
+    AddThingPageComponent,
+    AddListPageComponent
   ],
   imports: [
     BrowserModule,
+    AmazingTimePickerModule,
+    MyDatePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    ColorSketchModule,
     AppRoutingModule,
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,
