@@ -3,7 +3,18 @@
 
   <!-- <own-header></own-header>
   <sideBar></sideBar> -->
-  <own-header></own-header>
-  <sideBar></sideBar>
-  <router-outlet></router-outlet>
-<own-footer></own-footer>
+  <div class="container-scroller">  
+    <div class="container-fluid page-body-wrapper">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <header><own-header></own-header></header>
+    <sideBar></sideBar>
+    <div class="content-wrapper">
+    <router-outlet></router-outlet>
+    </div>
+  <footer class="footer"><own-footer></own-footer></footer>
+</div>
+      
+</div>
+    
+</div>
+

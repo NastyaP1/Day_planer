@@ -2,11 +2,12 @@
   <ul class="nav">
   <li class="nav-item nav-profile">
   <div class="nav-link">
-  <div class="profile-image" routerLink="profile">
+  <div class="profile-image" routerLink="/profile">
   <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
   </div>
   <div class="profile-name">
   <p class="name" routerLink="profile">
+    <i class="fa fa-user" aria-hidden="true"></i>
   {{currentUser.username}}
   </p>
   </div>
@@ -14,38 +15,42 @@
   </li>
   <li class="nav-item">
   <a class="nav-link"(click)="sendAllThings()" routerLink="/allThings"> 
-  <i class="icon-rocket menu-icon"></i>
+    <!-- <i class="menu-icon fa fa-paperclip"></i> -->
+    <i class="menu-icon fa fa-sticky-note" aria-hidden="true"></i>
   <span class="menu-title">Все дела</span>
   </a>
   </li>
   <li class="nav-item">
   <a class="nav-link" > <!--TODO link to calendar page-->
-  <i class="icon-shield menu-icon"></i>
+    <i class="menu-icon fa fa-calendar" aria-hidden="true"></i>
   <span class="menu-title">Календарь</span>
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link bg-primary" routerLink="addThing"> 
-  <i class="icon-magnet menu-icon"></i>
+  <a class="nav-link" routerLink="/addThing"> 
+    <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
   <span class="menu-title">Добавить дело</span>
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link bg-primary" routerLink="addList"> 
-  <i class="icon-magnet menu-icon"></i>
+  <a class="nav-link" routerLink="/addList"> 
+    <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
   <span class="menu-title">Добавить список</span>
   </a>
   </li>
   
   <li class="nav-item" *ngFor="let list of lists">
   <a class="nav-link" (click)="sendThings(list.id)" routerLink="/allThings"> 
-  <i class="icon-shield menu-icon"></i>
+    
   <span class="menu-title">{{ list.name }}</span>
   </a>
   </li>
   
   <li class="nav-item">
-  <a href class="nav-link" (click)="logout()">LogOut</a>
+  <a href class="nav-link" (click)="logout()">
+    <i class="menu-icon fa fa-sign-out" aria-hidden="true"></i>
+    <span class="menu-title">Выйти</span>
+  </a>
   </li>
   </ul>
   

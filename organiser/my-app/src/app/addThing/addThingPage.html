@@ -23,16 +23,18 @@ id="description"
 required [(ngModel)]="description"
 rows="2"></textarea>
 </div>
-<div class="input-group date datepicker">
+<!-- <div class="input-group date datepicker"> -->
+<label for="exampleTextarea1">Дата</label>
 <my-date-picker
 [options]="myDatePickerOptions"
 name="date"
 id="date"
 required [(ngModel)]="date">
 </my-date-picker>
-</div>
+<!-- </div> -->
 
-<div class="input-group clockpicker">
+<div class="input-group">
+<label for="exampleName1">Время</label>
 <input
 name="time"
 id="time"
@@ -41,7 +43,7 @@ tp-time-picker
 value="19:00"/>
 </div>
 
-<div lass="form-group">
+<div class="form-group">
 <label for="exampleSelectPrimary">Список</label>
 <select class="form-control border-primary" id="listname"
 required [(ngModel)]="listname" name="listname" #list="ngModel"
@@ -50,8 +52,13 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 </select>
 </div>
 
+<<<<<<< HEAD
 <button type="submit" class="btn btn-success mr-2" (click)="createThing(myform)">Submit</button>
 <button class="btn btn-light" routerLink="/allThings">Cancel</button>
+=======
+<button type="submit" class="btn btn-success mr-2" (click)="createThing(myform)">Создать</button>
+<button class="btn btn-light" routerLink="/allThings">Отмена</button>
+>>>>>>> 81fcba017aaa492d9ecee224ced22dc12152c374
 </form>
 </div>
 </div>

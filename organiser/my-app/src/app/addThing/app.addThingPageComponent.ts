@@ -34,6 +34,13 @@ month = form.controls['date'].value.date.month;
 }
 var date = form.controls['date'].value.date.year + '-' + month + '-' + form.controls['date'].value.date.day;
 var thing = new Thing(form.controls['name'].value, form.controls['description'].value, date, 'notdone');
-this.thingService.addthing(thing,form.controls['listname'].value).subscribe(data =>console.log(data));;
+// this.thingService.addthing(thing,form.controls['listname'].value).subscribe(data =>console.log(data));;
+this.thingService.addthing(thing,form.controls['listname'].value).subscribe(
+    data =>this.thingService.getAll().subscribe(data =>
+    {
+    sessionStorage.setItem("things", JSON.stringify(data))
+    window.location.replace("http://localhost:4200/allThings");
+    })
+    )
 }
 }
