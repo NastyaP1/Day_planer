@@ -2,18 +2,18 @@
   <ul class="nav">
   <li class="nav-item nav-profile">
   <div class="nav-link">
-  <div class="profile-image">
+  <div class="profile-image" routerLink="profile">
   <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
   </div>
   <div class="profile-name">
-  <p class="name">
+  <p class="name" routerLink="profile">
   {{currentUser.username}}
   </p>
   </div>
   </div>
   </li>
   <li class="nav-item">
-  <a class="nav-link"(click)="sendAllThings()" routerLink="/allThings"> <!--TODO link to all task page-->
+  <a class="nav-link"(click)="sendAllThings()" routerLink="/allThings"> 
   <i class="icon-rocket menu-icon"></i>
   <span class="menu-title">Все дела</span>
   </a>
@@ -25,20 +25,20 @@
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link bg-primary" > <!--TODO link to add task form-->
+  <a class="nav-link bg-primary" routerLink="addThing"> 
   <i class="icon-magnet menu-icon"></i>
   <span class="menu-title">Добавить дело</span>
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link bg-primary" > <!--TODO link to add list form-->
+  <a class="nav-link bg-primary" routerLink="addList"> 
   <i class="icon-magnet menu-icon"></i>
   <span class="menu-title">Добавить список</span>
   </a>
   </li>
   
   <li class="nav-item" *ngFor="let list of lists">
-  <a class="nav-link" (click)="sendThings(list.id)" routerLink="/allThings"> <!--TODO link to list page-->
+  <a class="nav-link" (click)="sendThings(list.id)" routerLink="/allThings"> 
   <i class="icon-shield menu-icon"></i>
   <span class="menu-title">{{ list.name }}</span>
   </a>

@@ -17,7 +17,6 @@ import { UserService } from 'src/app/services/user.service';
 import { ThingService } from 'src/app/services/thing.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BoardUserComponent } from './board-user/board-user.component';
-import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,8 +44,6 @@ import {DataService} from 'src/app/services/data.service';
 
 import {HttpService} from 'src/app/services/http.service';
 import {RouterModule} from '@angular/router';
-import { AddListPageComponent } from './addList/app.addListPageComponent';
-import { AddThingPageComponent } from './addThing/app.addThingPageComponent';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "951523443973-82b3n43cgkbntlrv9gcucinukkl5n36a.apps.googleusercontent.com",
