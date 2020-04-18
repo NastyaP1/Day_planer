@@ -1,15 +1,7 @@
-.tab-pane{
-  margin-left: 25%;
-  margin-top: 10%;
-}
-.fa-trash-o:before {
-  content: "";
+.grid-margin{
+    margin-left: 25%;
   }
-
-sideBar, own-header{
-  position: fixed;
-}
-
+  
 @-moz-keyframes flash {
     0% {
       opacity: 1; }

@@ -1,0 +1,21 @@
+<div class="col-md-6 grid-margin stretch-card">
+  <div class="card">
+  <div class="card-body">
+  <h4 class="card-title">Добавление Списка</h4>
+  <form #myform="ngForm" class="forms-sample">
+  <div class="form-group">
+  <label for="exampleInputName1">Название</label>
+  <input type="text"
+  name="name"
+  id="name"
+  class="form-control"
+  required [(ngModel)]="name"
+  placeholder="Название">
+  </div>
+  <button type="submit" (click)="createList(myform)" class="btn btn-success mr-2">Создать</button>
+  <button class="btn btn-light">Отмена</button>
+  </form>
+  </div>
+  </div>
+  </div>
+  

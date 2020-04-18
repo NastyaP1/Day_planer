@@ -1,52 +1,52 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-      <li class="nav-item nav-profile">
-        <div class="nav-link">
-          <div class="profile-image">
-            <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
-          </div>
-          <div class="profile-name">
-            <p class="name">
-              {{currentUser.username}}
-            </p>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" >  <!--TODO link to all task page-->
-          <i class="icon-rocket menu-icon"></i>
-          <span class="menu-title">Все дела</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" >  <!--TODO link to calendar page-->
-          <i class="icon-shield menu-icon"></i>
-          <span class="menu-title">Календарь</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link bg-primary" > <!--TODO link to add task form-->
-          <i class="icon-magnet menu-icon"></i>
-          <span class="menu-title">Добавить дело</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link bg-primary" > <!--TODO link to add list form-->
-          <i class="icon-magnet menu-icon"></i>
-          <span class="menu-title">Добавить список</span>
-        </a>
-      </li>
-
-      <li class="nav-item" *ngFor="let list of lists">
-        <a class="nav-link" >  <!--TODO link to list page-->
-          <i class="icon-shield menu-icon"></i>
-          <span class="menu-title">{{ list.name }}</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-    
+  <ul class="nav">
+  <li class="nav-item nav-profile">
+  <div class="nav-link">
+  <div class="profile-image">
+  <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
+  </div>
+  <div class="profile-name">
+  <p class="name">
+  {{currentUser.username}}
+  </p>
+  </div>
+  </div>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link"(click)="sendAllThings()" routerLink="/allThings"> <!--TODO link to all task page-->
+  <i class="icon-rocket menu-icon"></i>
+  <span class="menu-title">Все дела</span>
+  </a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" > <!--TODO link to calendar page-->
+  <i class="icon-shield menu-icon"></i>
+  <span class="menu-title">Календарь</span>
+  </a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link bg-primary" > <!--TODO link to add task form-->
+  <i class="icon-magnet menu-icon"></i>
+  <span class="menu-title">Добавить дело</span>
+  </a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link bg-primary" > <!--TODO link to add list form-->
+  <i class="icon-magnet menu-icon"></i>
+  <span class="menu-title">Добавить список</span>
+  </a>
+  </li>
+  
+  <li class="nav-item" *ngFor="let list of lists">
+  <a class="nav-link" (click)="sendThings(list.id)" routerLink="/allThings"> <!--TODO link to list page-->
+  <i class="icon-shield menu-icon"></i>
+  <span class="menu-title">{{ list.name }}</span>
+  </a>
+  </li>
+  
+  <li class="nav-item">
+  <a href class="nav-link" (click)="logout()">LogOut</a>
+  </li>
+  </ul>
+  
   </nav>
