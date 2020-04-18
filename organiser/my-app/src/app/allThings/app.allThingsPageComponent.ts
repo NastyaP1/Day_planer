@@ -11,6 +11,8 @@ import { ThingService } from '../services/thing.service';
   export class AllThingsPageComponent implements OnInit {
     things: Thing[];
     listId: number;
+    thingId: number;
+    index: number;
     visibility: boolean = true;
     name;
     description;
@@ -37,14 +39,15 @@ import { ThingService } from '../services/thing.service';
       this.name = this.things[i].name;
       this.description = this.things[i].description;
       this.date = this.things[i].date;
+      this.thingId =  this.things[i].id;
+      this.listId =  this.things[i].listId;
+      this.index = i;
     }
-    delete(thingId, i){
-      console.log(thingId + ' ' + i)
-      console.log(thingId + ' ' + this.things[i].listId);
+    delete(){
       
       //this.things = JSON.parse(sessionStorage.getItem("things"));
-      this.thingService.deleteById(thingId, this.things[i].listId).subscribe(data =>console.log(data));
-      this.things.splice(i, 1);
+      this.thingService.deleteById(this.thingId, this.listId).subscribe(data =>console.log(data));
+      this.things.splice(this.index, 1);
       sessionStorage.setItem("things", JSON.stringify(this.things));
       //this.thingService.getAll().subscribe(data => {
       //this.things = data;

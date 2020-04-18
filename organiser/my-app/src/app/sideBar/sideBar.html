@@ -39,9 +39,9 @@
   </a>
   </li>
   
-  <li class="nav-item" *ngFor="let list of lists">
-  <a class="nav-link" (click)="sendThings(list.id)" routerLink="/allThings"> 
-    
+  <li class="nav-item" *ngFor="let list of lists, let i=index">
+  <a class="nav-link" (click)="sendThings(list.id, i)" routerLink="/allThings"> 
+
   <span class="menu-title">{{ list.name }}</span>
   </a>
   </li>

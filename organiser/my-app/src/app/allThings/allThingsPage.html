@@ -7,13 +7,14 @@
 <div [ngClass]="{invisible: visibility}" class="card info-form  mb-5">
   <div class="card-body">
     <!-- <button class="btn btn-secondary">Закрыть</button> -->
-    <a><i class="fa fa-times" aria-hidden="true" (click)="delete(thing.id, i)"></i></a>
+    <a  ><i class="fa fa-times" aria-hidden="true" (click)="delete()"></i></a>
     <h2>{{name}}</h2>
     <p>{{description}}</p>
     <p>{{date}}</p>
     <a ><i class="fa fa-trash" aria-hidden="true"></i></a>
   </div>
 </div>
+
 <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
        
     <div class="list-wrapper px-3 today">

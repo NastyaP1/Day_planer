@@ -41,12 +41,12 @@ this.token.signOut();
 window.location.replace("http://localhost:4200/login");
 }
 
-sendThings(id){
+sendThings(id, i){
 console.log(id);
 this.thingService.getAllByListId(id).subscribe(data =>
 {console.log(data);
 sessionStorage.setItem("things", JSON.stringify(data)); 
-sessionStorage.setItem("header", this.lists[id].name);
+sessionStorage.setItem("header", this.lists[i].name);
 window.location.replace("http://localhost:4200/allThings");
 }
 
