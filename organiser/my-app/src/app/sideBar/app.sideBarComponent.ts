@@ -30,6 +30,7 @@ sendAllThings(){
 this.thingService.getAll().subscribe(data =>
 {
 sessionStorage.setItem("things", JSON.stringify(data))
+sessionStorage.setItem("header", "Все дела");
 window.location.replace("http://localhost:4200/allThings");
 }
 );
@@ -44,7 +45,8 @@ sendThings(id){
 console.log(id);
 this.thingService.getAllByListId(id).subscribe(data =>
 {console.log(data);
-sessionStorage.setItem("things", JSON.stringify(data));
+sessionStorage.setItem("things", JSON.stringify(data)); 
+sessionStorage.setItem("header", this.lists[id].name);
 window.location.replace("http://localhost:4200/allThings");
 }
 

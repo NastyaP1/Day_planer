@@ -1,29 +1,25 @@
 
-<!-- To do section tab starts -->
-<div  [ngClass]="{invisible: visibility}" class="card info-form card-inverse-secondary mb-5">
+<!--  -->
+<div class="card">
+  <div class="container-fluid bg-secondary py-2">
+    <p class="mb-0 text-gray card-title">{{header}}</p>
+  </div>
+<div [ngClass]="{invisible: visibility}" class="card info-form  mb-5">
   <div class="card-body">
     <!-- <button class="btn btn-secondary">Закрыть</button> -->
-    <i class="fa fa-remove"></i>
+    <a><i class="fa fa-times" aria-hidden="true"></i></a>
     <h2>{{name}}</h2>
     <p>{{description}}</p>
     <p>{{date}}</p>
-    <i class="fa fa-trash c-black"></i>
+    <a ><i class="fa fa-trash" aria-hidden="true"></i></a>
   </div>
 </div>
 <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-    <!-- <div class="add-items d-flex px-3 mb-0">
-      <form class="form w-100">
-        <div class="form-group d-flex">
-          <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-          <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
-        </div>
-      </form>
-    </div> -->
-    
+       
     <div class="list-wrapper px-3 today">
         <h4 class="card-title">Сегодня</h4>
-        <a class="nav-link  nav-btn"  >
-            <span class="btn">+ Create new</span>
+        <a class="nav-link  nav-btn" routerLink="/addThing" >
+            <span class="btn"><i class="menu-icon fa fa-plus" aria-hidden="true"></i> Добавить дело</span>
           </a>
       <ul class="d-flex flex-column-reverse todo-list">
         <li>
@@ -38,8 +34,8 @@
     </div>
     <div class="list-wrapper px-3 on-week">
         <h4 class="card-title">На неделе</h4>
-        <a class="nav-link  nav-btn"  >
-            <span class="btn">+ Create new</span>
+        <a class="nav-link  nav-btn" routerLink="/addThing" >
+            <span class="btn"><i class="menu-icon fa fa-plus" aria-hidden="true"></i> Добавить дело</span>
           </a>
         <ul class="d-flex flex-column-reverse todo-list">
           <li>
@@ -54,10 +50,21 @@
       </div>
       <div class="list-wrapper px-3 later">
         <h4 class="card-title">Позже</h4>
-        <a class="nav-link  nav-btn"  >
-            <span class="btn">+ Create new</span>
+        <a class="nav-link  nav-btn" routerLink="/addThing" >
+            <span class="btn"><i class="menu-icon fa fa-plus" aria-hidden="true"></i> Добавить дело</span>
           </a>
-      <div  *ngFor="let thing of things, let i = index">
+          <!-- <div  *ngFor="let thing of things, let i = index"> -->
+            <ul class="d-flex flex-column-reverse todo-list" *ngFor="let thing of things, let i = index">
+                <div class="form-check">
+                  <button (click)="toggle(i)">
+                    <input class="checkbox" type="checkbox">
+                    {{thing.name}}
+                  </button>
+                </div>
+                <i class="remove mdi mdi-close-circle-outline"></i>
+            </ul>
+        <!-- </div> -->
+      <!-- <div  *ngFor="let thing of things, let i = index">
         <ul class="d-flex flex-column-reverse todo-list" >
             <div class="form-check">
               <button (click)="toggle(i)">
@@ -67,29 +74,10 @@
             </div>
             <i class="remove mdi mdi-close-circle-outline"></i>
         </ul>
-    </div>
+    </div> -->
    
     </div>
-      
-     
-
-    
-    <!-- <div class="events py-4 border-bottom px-3">
-      <div class="wrapper d-flex mb-2">
-        <i class="mdi mdi-circle-outline text-primary mr-2"></i>
-        <span>Feb 11 2018</span>
-      </div>
-      <p class="mb-0 font-weight-thin text-gray">Creating component page</p>
-      <p class="text-gray mb-0">build a js based app</p>
-    </div>
-    <div class="events pt-4 px-3">
-      <div class="wrapper d-flex mb-2">
-        <i class="mdi mdi-circle-outline text-primary mr-2"></i>
-        <span>Feb 7 2018</span>
-      </div>
-      <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
-      <p class="text-gray mb-0 ">Call Sarah Graves</p>
-     </div> --><!-- events -->
   </div>
+</div>
 
   <!-- To do section tab ends -->

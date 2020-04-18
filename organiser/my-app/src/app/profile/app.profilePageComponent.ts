@@ -13,7 +13,7 @@ import { EventService } from '../services/event.service';
 
 @Component({
   templateUrl: './profilePage.html',
-  styleUrls: ['./app.profilePageComponent.scss'],
+  styleUrls: ['./app.profilePageComponent.css'],
   providers: [DataService]
 })
 @Injectable()

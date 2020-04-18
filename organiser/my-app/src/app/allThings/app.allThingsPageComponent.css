@@ -1,15 +1,14 @@
+.info-form{
+width: 30%;
+}
 .tab-pane{
-  margin-left: 20%;
-  margin-top: 7%;
-  margin-right: 20%;
+  width: 70%;
 }
 .fa-trash-o:before {
   content: "";
   }
 
-sideBar, own-header{
-  position: fixed;
-}
+
 
 @-moz-keyframes flash {
     0% {

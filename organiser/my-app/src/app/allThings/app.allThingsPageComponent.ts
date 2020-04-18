@@ -15,6 +15,7 @@ import { ThingService } from '../services/thing.service';
     name;
     description;
     date;
+    header;
     // currentUser: any;
   
     constructor(
@@ -25,11 +26,13 @@ import { ThingService } from '../services/thing.service';
     }
     ngOnInit() {
       console.log(sessionStorage.getItem("things"));
+      this.header = sessionStorage.getItem("header");
       this.things = JSON.parse(sessionStorage.getItem("things"));
     //   this.currentUser = this.token.getUser();
     } 
     toggle(i){
       //sessionStorage.setItem("thing", JSON.stringify(this.things[i]));
+      
       this.visibility=!this.visibility;
       this.name = this.things[i].name;
       this.description = this.things[i].description;
