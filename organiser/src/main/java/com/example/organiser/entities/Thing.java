@@ -23,13 +23,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@JsonIgnoreProperties({ "user_id", "list_id"})
+@JsonIgnoreProperties({ "user_id"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "things")
 public class Thing {
-    @JsonIgnore
     @Id
     @SequenceGenerator(name = "thing_id_seq", sequenceName = "thing_thing_id_seq", allocationSize = 1, initialValue = 100)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "thing_id_seq")

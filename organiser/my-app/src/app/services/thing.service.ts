@@ -35,4 +35,8 @@ export class ThingService {
     getAllByListId(listId): Observable<Thing[]>{
         return this.http.get<Thing[]>(this.thingUrl + listId + '/things');
     }
+
+    getAll(): Observable<Thing[]>{
+        return this.http.get<Thing[]>("http://localhost:8181/api/auth/things");
+    }
 }

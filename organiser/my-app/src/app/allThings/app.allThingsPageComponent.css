@@ -1,6 +1,7 @@
 .tab-pane{
   margin-left: 20%;
   margin-top: 7%;
+  margin-right: 20%;
 }
 .fa-trash-o:before {
   content: "";
@@ -21543,3 +21544,8 @@ sideBar, own-header{
     .landing-page .footer .footer-bottom {
       color: #ffffff;
       font-family: "roboto-medium", sans-serif; }
+
+      .info-form{
+        margin-left: 70%;
+        width: 200px;
+      }

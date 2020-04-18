@@ -60,10 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 		.authorizeRequests()
 		//.antMatchers(HttpMethod.GET,"/posts/**","/comments/**","/post/**").permitAll()
-		.antMatchers("/login","/signup","/api/auth/**", "/api/auth/lists/**",  "/api/auth/events/**").permitAll()
-		.antMatchers(HttpMethod.GET,"api/auth/**",  "/api/auth/lists/**", "/api/auth/events/**").permitAll()
-		.antMatchers(HttpMethod.DELETE, "api/auth/**", "/api/auth/lists/**", "/api/auth/events/**").permitAll()
-		.antMatchers(HttpMethod.PUT,"api/auth/**",  "/api/auth/lists", "/api/auth/events").permitAll()
+		.antMatchers("/signin","/signup","/api/auth/**", "/api/auth/lists/**",  "/api/auth/events/**", "/api/auth/things/**", "/api/auth/lists/**/things/**").permitAll()
+		.antMatchers(HttpMethod.GET,"api/auth/**",  "/api/auth/lists/**", "/api/auth/events/**", "/api/auth/things/**", "/api/auth/lists/**/things/**").permitAll()
+		.antMatchers(HttpMethod.DELETE, "api/auth/**", "/api/auth/lists/**", "/api/auth/events/**", "/api/auth/things/**", "/api/auth/lists/**/things/**").permitAll()
+		.antMatchers(HttpMethod.PUT,"api/auth/**",  "/api/auth/lists", "/api/auth/events", "/api/auth/things", "/api/auth/lists/**/things").permitAll()
 		.antMatchers("/api/test/**").permitAll()
 		.anyRequest().authenticated();
 

@@ -210,7 +210,9 @@ public class AuthController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
 		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
 		User user = userRepository.findById(us.getId()).get();	
-        thing.setOwner(user);
+		thing.setOwner(user);
+		ListToDo list = listRepository.findAllById(Integer.parseInt(listId));
+		thing.setList(list);
         Thing savedThing = thingRepository.saveAndFlush(thing);
         return savedThing;
 	}
@@ -229,8 +231,18 @@ public class AuthController {
 
     @GetMapping(path = "/lists/{listId}/things")
     public Iterable<Thing> getThingsByListId( @PathVariable String listId) {
-		ListToDo list = listRepository.findById(Integer.parseInt(listId)).get();	
-        return thingRepository.findAllByListId(list);
+		ListToDo list = listRepository.findAllById(Integer.parseInt(listId));
+
+		Iterable<Thing> th =thingRepository.findAllByList(list);
+		return thingRepository.findAllByList(list);
+	}
+
+	@GetMapping(path = "/things")
+    public Iterable<Thing> getThingsByUserId() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
+		User user = userRepository.findById(us.getId()).get();	
+        return thingRepository.findAllByOwner(user);
 	}
 }
 

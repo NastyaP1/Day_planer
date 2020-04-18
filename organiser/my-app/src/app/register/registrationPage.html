@@ -1,115 +1,108 @@
-<div class="container-scroller">
-    <div class="container-fluid page-body-wrapper">
-      <div class="row">
-        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth">
-          <div class="row w-100">
-            <div class="col-lg-8 mx-auto">
-              <div class="row">
-                <div class="col-lg-6 bg-white">
-                  <div class="auth-form-light text-left p-5">
-                    <h2>Регистрация</h2>
-                    <h4 class="font-weight-light">Привет! Давайте знакомиться!</h4>
-                    <form class="pt-4">
-                      <form
-                            *ngIf="!isSuccessful"
-                            name="form"
-                            (ngSubmit)="f.form.valid && onSubmit()"
-                            #f="ngForm"
-                            novalidate
-                          >
-                          <div class="form-group">
-                            <label for="username">Имя пользователя</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="username"
-                              [(ngModel)]="form.username"
-                              required
-                              minlength="3"
-                              maxlength="20"
-                              #username="ngModel"
-                            />
 
-                          <i class="mdi mdi-account"></i>
-                          <div class="alert-danger" *ngIf="f.submitted && username.invalid">
-                            <div *ngIf="username.errors.required">Имя пользователя обязательно для заполнения</div>
-                            <div *ngIf="username.errors.minlength">
-                              Имя пользователя должно содержать минимум 3 символа
-                            </div>
-                            <div *ngIf="username.errors.maxlength">
-                              Имя пользователя должно содержать не более 20 символов
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="email">E-mail</label>
-                          <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            [(ngModel)]="form.email"
-                            required
-                            email
-                            #email="ngModel"
-                          />
-                            <div class="alert-danger" *ngIf="f.submitted && email.invalid">
-                              <div *ngIf="email.errors.required">E-mail обязательен для заполнения</div>
-                              <div *ngIf="email.errors.email">
-                                E-mail должен быть действительным адресом электронной почты
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label for="password">Пароль</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              name="password"
-                              [(ngModel)]="form.password"
-                              required
-                              minlength="6"
-                              #password="ngModel"
-                            />
-                          <i class="mdi mdi-eye"></i>
-                          <div class="alert-danger" *ngIf="f.submitted && password.invalid">
-                            <div *ngIf="password.errors.required">Пароль обязателен для заполнения</div>
-                            <div *ngIf="password.errors.minlength">
-                              Пароль должен содержать минимум 6 символов
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <button class="btn btn-primary btn-block">Зарегистрироваться</button>
-                        </div>
-                        <div class="mt-2 w-75 mx-auto">
-                          <div class="form-check form-check-flat">
-                            <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input">
-                              Я принимаю условия пользовательского соглашения
-                            </label>
-                          </div>
-                        </div>
-                        <div class="mt-2 text-center">
-                          <a  class="auth-link text-black">Уже зарегистрированы? <span class="font-weight-medium">Sign in</span></a>
-                        </div>
-                        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                          Что-то пошло не так!<br />{{ errorMessage }}
-                        </div>
-                      </form>     
-                      <div class="alert alert-success" *ngIf="isSuccessful">
-                        Регистрация прошла успешно!
-                      </div>             
-                    </form>
+<div class="content-wrapper full-page-wrapper d-flex align-items-center auth">
+  <div class="row w-100">
+    <div class="col-lg-8 mx-auto">
+      <div class="row">
+        <div class="col-lg-6 bg-white register-form">
+          <div class="auth-form-light text-left p-5">
+            <h2>Регистрация</h2>
+            <h4 class="font-weight-light">Привет! Давайте знакомиться!</h4>
+            <form class="pt-4">
+              <form
+                    *ngIf="!isSuccessful"
+                    name="form"
+                    (ngSubmit)="f.form.valid && onSubmit()"
+                    #f="ngForm"
+                    novalidate
+                  >
+                  <div class="form-group">
+                    <label for="username">Имя пользователя</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="username"
+                      [(ngModel)]="form.username"
+                      required
+                      minlength="3"
+                      maxlength="20"
+                      #username="ngModel"
+                    />
+
+                  <i class="mdi mdi-account"></i>
+                  <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+                    <div *ngIf="username.errors.required">Имя пользователя обязательно для заполнения</div>
+                    <div *ngIf="username.errors.minlength">
+                      Имя пользователя должно содержать минимум 3 символа
+                    </div>
+                    <div *ngIf="username.errors.maxlength">
+                      Имя пользователя должно содержать не более 20 символов
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    [(ngModel)]="form.email"
+                    required
+                    email
+                    #email="ngModel"
+                  />
+                    <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+                      <div *ngIf="email.errors.required">E-mail обязательен для заполнения</div>
+                      <div *ngIf="email.errors.email">
+                        E-mail должен быть действительным адресом электронной почты
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      [(ngModel)]="form.password"
+                      required
+                      minlength="6"
+                      #password="ngModel"
+                    />
+                  <i class="mdi mdi-eye"></i>
+                  <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+                    <div *ngIf="password.errors.required">Пароль обязателен для заполнения</div>
+                    <div *ngIf="password.errors.minlength">
+                      Пароль должен содержать минимум 6 символов
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block">Зарегистрироваться</button>
+                </div>
+                <div class="mt-2 w-75 mx-auto">
+                  <div class="form-check form-check-flat">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input">
+                      Я принимаю условия пользовательского соглашения
+                    </label>
+                  </div>
+                </div>
+                <div class="mt-2 text-center">
+                  <a  class="auth-link text-black">Уже зарегистрированы? <span class="font-weight-medium">Sign in</span></a>
+                </div>
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                  Что-то пошло не так!<br />{{ errorMessage }}
+                </div>
+              </form>     
+              <div class="alert alert-success" *ngIf="isSuccessful">
+                Регистрация прошла успешно!
+              </div>             
+            </form>
           </div>
         </div>
-        <!-- content-wrapper ends -->
       </div>
-      <!-- row ends -->
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
+</div>
+<!-- content-wrapper ends -->

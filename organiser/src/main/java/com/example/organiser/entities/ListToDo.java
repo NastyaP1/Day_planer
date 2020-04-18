@@ -1,6 +1,5 @@
 package com.example.organiser.entities;
-
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,13 +26,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@JsonIgnoreProperties({"user_id"})
+@JsonIgnoreProperties({"user_id", "things"})
 @Table(name = "lists")
 public class ListToDo {
-    
-    @JsonIgnore
     @Id
-    @SequenceGenerator(name = "list_id_seq", sequenceName = "list_thing_id_seq", allocationSize = 1, initialValue = 100)
+    @SequenceGenerator(name = "list_id_seq", sequenceName = "list_list_id_seq", allocationSize = 1, initialValue = 100)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "list_id_seq")
     @Column(name = "list_id")
     private Integer id;
@@ -47,7 +44,8 @@ public class ListToDo {
     @JoinColumn(name = "user_id")
     private User owner;
 
-    /*@OneToMany(mappedBy = "list")
+    @OneToMany(mappedBy = "list")
     @Column(name = "list_things")
-    private List<Thing> things;*/
+    private Set<Thing> things;
+
 }

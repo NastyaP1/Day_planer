@@ -32,7 +32,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@JsonIgnoreProperties({"listsToDo", "serialVersionUID",  "username" })
+@JsonIgnoreProperties({ "serialVersionUID",  "username" })
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
 		@UniqueConstraint(columnNames = "email") })
 public class User implements UserDetails {
@@ -59,7 +59,6 @@ public class User implements UserDetails {
 	@Column(name = "avatar")
 	private String avatar;
 
-	
 	@OneToMany(mappedBy = "owner")
 	@Column(name = "user_events") 
 	private Set<Event> events;
