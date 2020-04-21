@@ -1,49 +1,62 @@
-  <div class="card">
+  <div class="col-md-6 grid-margin stretch-card"><div class="card">
     <div class="container-fluid bg-secondary py-2">
       <p class="mb-0 text-gray card-title">Личный кабинет</p>
     </div>
   <!-- <div class="row user-profile"> -->
-    <div class="col-lg-4 side-left d-flex align-items-stretch">
-      <div class="row">
-        <!-- <div class="col-12 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body avatar">
-              <h4 class="card-title">Info</h4>
-              <img src="../../images/faces/face6.jpg" alt="">
-              <p class="name">John Doe</p>
-              <p class="designation">-  UI/UX  -</p>
-              <a class="d-block text-center text-dark" href="#">johndoe@gmail.com</a>
-              <a class="d-block text-center text-dark" href="#">+1 9438 934089</a>
-            </div>
-          </div>
-        </div> -->
+    
+      <!-- <div class="row"> -->
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info">
-        <form action="/" method="post">
-          <div class="row">
-            <div class="col-lg-5">
-              <div class="form-group">
-                <div class="profile-image">
+            <!-- <div class="profile-image">
                   <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
-                </div>
-              <span class="form-label">Фото пользователя</span>
-              <!-- <div class="dropzone" id="listing-gallery"></div> -->
-              <div class="tab-pane fade" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
-                <div class="wrapper mb-5 mt-4">
-                  <span class="badge badge-warning text-white">Note : </span>
-                  <p class="d-inline ml-3 text-muted">Image size is limited to not greater than 1MB .</p>
-                </div>
-                <form action="#">
-                  <input type="file" class="dropify" data-max-file-size="1mb" data-default-file="../../images/faces/face6.jpg"/>
-                  <div class="form-group mt-5">
-                    <button type="submit" class="btn btn-success mr-2">Изменить изменения</button>
-                    <button class="btn btn-outline-danger">Отменить</button>
+            </div>
+            <span class="form-label">Фото пользователя</span> -->
+            <div class="card-body avatar">
+              <!-- <img src="../../images/faces/face6.jpg" alt=""> -->
+              <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
+            </div>
+            <div class="tab-pane fade active show" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
+              <div class="wrapper mb-5 mt-4">
+                <!-- <span class="badge badge-warning text-white">Note : </span> -->
+                <p class="d-inline ml-3 text-muted">Размер изображения не должен превышать 1МБ.</p>
+              </div>
+              <form action="#">
+                <div class="dropify-wrapper">
+                  <div class="dropify-message">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <p>Перетащите сюда файл или нажмите сюда</p>
+                    <!-- <p class="dropify-error">Ooops, something wrong appended.</p> -->
                   </div>
-                </form>
-              </div>
-              </div>
-              </div><!--.col-->
-          <div class="col-lg-7">
+                  <div class="dropify-loader" style="display: none;">
+                  </div>
+                  <!-- <div class="dropify-errors-container">
+                    <ul></ul></div> -->
+                    <input type="file" class="dropify" data-max-file-size="1mb">
+                    <!-- <button type="button" class="dropify-clear">Удалить</button> -->
+                    <!-- <div class="dropify-preview" style="display: none;">
+                      <span class="dropify-render"></span>
+                      <div class="dropify-infos">
+                        <div class="dropify-infos-inner">
+                          <p class="dropify-filename">
+                            <span class="file-icon"></span> 
+                            <span class="dropify-filename-inner">face6.jpg</span>
+                          </p>
+                          <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                <!-- <input type="file" class="dropify" data-max-file-size="1mb" data-default-file="../../images/faces/face6.jpg"/> -->
+                <div class="form-group mt-5">
+                  <button type="submit" class="btn btn-success mr-2">Изменить</button>
+                  <button type="reset" class="btn btn-outline-danger">Отменить</button>
+                </div>
+              </form>
+            </div>
+        <form action="/" method="post">
+          <!-- <div class="row"> -->
+            
+          <!-- <div class="col-lg-7"> -->
           <div class="form-group">
           <label for="name">Имя пользователя </label>
           <input
@@ -75,18 +88,17 @@
           id="introduction"
           rows="10"></textarea>
           </div> -->
-          </div><!--col-->
-          
+          <!--</div>col-->       
           
           
           <div class="form-group mt-5">
             <button type="submit" class="btn btn-success mr-2">Сохранить изменения</button>
           </div>
-          </div><!-- row -->
+          <!-- </div>row -->
           </form>
         </div>
       </div>
-        </div>
+        <!-- </div> -->
       </div>
     <!-- </div>
     <div class="col-lg-8 side-right stretch-card">
@@ -110,49 +122,13 @@
             <hr>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info">
-                <form action="#">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Change user name">
-                  </div>
-                  <div class="form-group">
-                    <label for="designation">Designation</label>
-                    <input type="text" class="form-control" id="designation" placeholder="Change designation">
-                  </div>
-                  <div class="form-group">
-                    <label for="mobile">Mobile Number</label>
-                    <input type="text" class="form-control" id="mobile" placeholder="Change mobile number">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Change email address">
-                  </div>
-                  <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea name="address" id="address" rows="6" class="form-control" placeholder="Change address"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Website URL</label>
-                    <input type="text" class="form-control" id="website" placeholder="Change website url">
-                  </div>
-                  <div class="form-group mt-5">
-                    <button type="submit" class="btn btn-success mr-2">Update</button>
-                    <button class="btn btn-outline-danger">Cancel</button>
-                  </div>
-                </form>
+                
               </div>
               <div class="tab-pane fade" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
                 <div class="wrapper mb-5 mt-4">
                   <span class="badge badge-warning text-white">Note : </span>
                   <p class="d-inline ml-3 text-muted">Image size is limited to not greater than 1MB .</p>
                 </div>
-                 <form action="#">
-                  <input type="file" class="dropify" data-max-file-size="1mb" data-default-file="../../images/faces/face6.jpg"/>
-                  <div class="form-group mt-5">
-                    <button type="submit" class="btn btn-success mr-2">Update</button>
-                    <button class="btn btn-outline-danger">Cancel</button>
-                  </div>
-                </form>
               </div> -->
             <!-- </div> -->
             </div>
