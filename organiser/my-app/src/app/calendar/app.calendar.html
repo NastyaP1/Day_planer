@@ -1,0 +1,29 @@
+<div class="container-calender">
+    <div class="container-calender-btn">
+        <div class="form-group">
+            <button routerLink="/addEvent" class="btn btn-primary btn-block">
+              Добавить событие
+            </button>
+        </div>
+    </div>
+              
+      <div class="container">
+        <ngx-simple-calendar  [options]="options1" [events]="events">
+        <ng-template #day
+                       let-date="number"
+                       let-events="events"
+                       let-active="today"
+                       let-weekend="weekend">
+            <div
+                 [class.active]="active"
+                 [class.weekend]="weekend">
+              <span>{{date}}</span>
+              <div class="events">
+                <div class="event" [style.background-color]="event.data.color" *ngFor="let event of events, let i = index" (dblclick)="deleteEvent(event)" [title]="event.data.name"></div>
+              </div>
+            </div>
+          </ng-template>
+        </ngx-simple-calendar>
+      </div>
+
+</div>

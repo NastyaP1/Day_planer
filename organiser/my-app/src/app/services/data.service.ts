@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+{ providedIn: 'root' }
 export class DataService {
-
+public linkName$ = new BehaviorSubject<String>("/assets/img/man.png");
 }

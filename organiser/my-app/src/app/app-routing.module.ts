@@ -8,48 +8,66 @@ import {AllThingsPageComponent} from './allThings/app.allThingsPageComponent';
 import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {AddThingPageComponent} from './addThing/app.addThingPageComponent';
 import {AddListPageComponent} from './addList/app.addListPageComponent';
+import { CalendarComponent } from './calendar/calendar';
+import { AddEventPageComponent } from './addEvent/app.addEventPageComponent';
+import { PasswordChangeComponent } from './password/app.passwordComponent';
 
 const routes: Routes = [{
-  path: 'login',
-  component: LoginPageComponent
+path: 'login',
+component: LoginPageComponent
 },
 
 {
-  path: 'register',
-  component: RegistrationPageComponent
+path: 'password',
+component: PasswordChangeComponent
 },
 
 {
-  path: 'profile',
-  component: ProfilePageComponent
+path: 'register',
+component: RegistrationPageComponent
 },
 
 {
-  path: 'allThings',
-  component: AllThingsPageComponent
+path: 'addEvent',
+component: AddEventPageComponent
 },
 
 {
-  path: 'dayThings',
-  component: DayThingsPageComponent
-},
-{
-  path:'addList',
-  component: AddListPageComponent
-},
-{
-  path:'addThing',
-  component: AddThingPageComponent
+path: 'profile',
+component: ProfilePageComponent
 },
 
 {
-  path: 'addThing',
-  component: AddThingPageComponent
+path: 'allThings',
+component: AllThingsPageComponent
 },
 
 {
-  path: 'addList',
-  component: AddListPageComponent
+path: 'dayThings',
+component: DayThingsPageComponent
+},
+{
+path:'addList',
+component: AddListPageComponent
+},
+{
+path:'addThing',
+component: AddThingPageComponent
+},
+
+{
+path: 'addThing',
+component: AddThingPageComponent
+},
+
+{
+path: 'addList',
+component: AddListPageComponent
+},
+
+{
+path: 'calendar',
+component: CalendarComponent
 },
 
 { path: 'user', component: BoardUserComponent },
@@ -57,7 +75,7 @@ const routes: Routes = [{
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+imports: [RouterModule.forRoot(routes)],
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -27,6 +27,11 @@ export class ListToDoService {
     return this.http.put<ListToDo>(this.listToDoUrl, list);
   }
 
+  changeList(id, list: ListToDo) : Observable<ListToDo>
+  {
+    return this.http.put<ListToDo>(this.listToDoUrl + '/'+ id, list);
+  }
+
   deleteById(id: number) {
     return this.http.delete(this.listToDoUrl+'/'+id);
   }

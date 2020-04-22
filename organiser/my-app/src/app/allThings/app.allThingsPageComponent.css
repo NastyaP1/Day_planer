@@ -7,7 +7,13 @@ width: 30%;
 .fa-trash-o:before {
   content: "";
   }
-
+  a{
+    cursor: pointer;
+    }
+    
+  .fa-pencil:before {
+    content: "";
+    }
 
 
 @-moz-keyframes flash {

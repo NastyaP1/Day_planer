@@ -1,11 +1,6 @@
-img-div {
-  width: 5rem;
-  height: 5rem;
-  }
-  
-  img {
-  cursor: pointer;
-  }
+
+
+
 @-moz-keyframes flash {
     0% {
       opacity: 1; }

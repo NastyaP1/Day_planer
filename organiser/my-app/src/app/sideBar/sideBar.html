@@ -1,55 +1,54 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav *ngIf="isLoggedIn$ | async as isLoggedIn" class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
   <li class="nav-item nav-profile">
   <div class="nav-link">
-  <div class="profile-image" routerLink="/profile">
-  <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
+  <div class="profile-image">
+  <img width="80" src="{{avatar}}" alt="">
   </div>
   <div class="profile-name">
   <p class="name" routerLink="profile">
-    <i class="fa fa-user" aria-hidden="true"></i>
+  <i class="fa fa-user" aria-hidden="true"></i>
   {{currentUser.username}}
   </p>
   </div>
   </div>
   </li>
   <li class="nav-item">
-  <a class="nav-link"(click)="sendAllThings()" routerLink="/allThings"> 
-    <!-- <i class="menu-icon fa fa-paperclip"></i> -->
-    <i class="menu-icon fa fa-sticky-note" aria-hidden="true"></i>
+  <a class="nav-link"(click)="sendAllThings()" routerLink="/allThings">
+  <!-- <i class="menu-icon fa fa-paperclip"></i> -->
+  <i class="menu-icon fa fa-sticky-note" aria-hidden="true"></i>
   <span class="menu-title">Все дела</span>
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link" > <!--TODO link to calendar page-->
-    <i class="menu-icon fa fa-calendar" aria-hidden="true"></i>
+  <a class="nav-link" routerLink="/calendar">
+  <i class="menu-icon fa fa-calendar" aria-hidden="true"></i>
   <span class="menu-title">Календарь</span>
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link" routerLink="/addThing"> 
-    <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
+  <a class="nav-link" (click)="changeThing()" routerLink="/addThing">
+  <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
   <span class="menu-title">Добавить дело</span>
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link" routerLink="/addList"> 
-    <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
+  <a class="nav-link" (click)="changeList()" routerLink="/addList">
+  <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
   <span class="menu-title">Добавить список</span>
   </a>
   </li>
   
   <li class="nav-item" *ngFor="let list of lists, let i=index">
-  <a class="nav-link" (click)="sendThings(list.id, i)" routerLink="/allThings"> 
-
+  <a class="nav-link" (click)="sendThings(list.id, i)" routerLink="/allThings">
   <span class="menu-title">{{ list.name }}</span>
   </a>
   </li>
   
   <li class="nav-item">
   <a href class="nav-link" (click)="logout()">
-    <i class="menu-icon fa fa-sign-out" aria-hidden="true"></i>
-    <span class="menu-title">Выйти</span>
+  <i class="menu-icon fa fa-sign-out" aria-hidden="true"></i>
+  <span class="menu-title">Выйти</span>
   </a>
   </li>
   </ul>

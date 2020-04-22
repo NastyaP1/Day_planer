@@ -1,10 +1,10 @@
 export class Event {
-    constructor(
-      public id: number,
-      public name: string,
-      public start_date: Date,
-      public end_date: Date,
-      public colour: string,
-    ) {}
-  }
+  constructor(
   
+  public colour: string,
+  public end_date: string,
+  public name: string,
+  public start_date: string,
+  public id?: number
+  ) {}
+  }
