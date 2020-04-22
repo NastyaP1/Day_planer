@@ -32,7 +32,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@JsonIgnoreProperties({ "serialVersionUID",  "username" })
+@JsonIgnoreProperties({"user_id"})
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
 		@UniqueConstraint(columnNames = "email") })
 public class User implements UserDetails {
@@ -79,6 +79,7 @@ public class User implements UserDetails {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.avatar = avatar;
 	}
 
 	public Long getId() {
@@ -103,6 +104,14 @@ public class User implements UserDetails {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getAvatar() {
+		return avatar;
 	}
 
 	public String getPassword() {

@@ -32,8 +32,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.organiser.entities.*;
+import com.example.organiser.payload.request.AvatarRequest;
 import com.example.organiser.payload.request.LoginRequest;
+import com.example.organiser.payload.request.PasswordRequest;
 import com.example.organiser.payload.request.SignupRequest;
+import com.example.organiser.payload.request.UpdateRequest;
 import com.example.organiser.payload.response.JwtResponse;
 import com.example.organiser.payload.response.MessageResponse;
 import com.example.organiser.repositories.RoleRepository;
@@ -88,6 +91,7 @@ public class AuthController {
 												 userDetails.getId(), 
 												 userDetails.getUsername(), 
 												 userDetails.getEmail(), 
+												 userDetails.getAvatar(),
 												 roles));
 	}
 
@@ -153,12 +157,80 @@ public class AuthController {
 		User user = userRepository.findById(us.getId()).get();	
         return listRepository.findAllByOwner(user);
 	}
+
+	@PostMapping(path = "/updateprofile")
+    public ResponseEntity<?> changeUserProfile(@Valid @RequestBody UpdateRequest user) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
+		User oldUser = userRepository.findById(us.getId()).get();	
+		if (userRepository.existsByUsername(user.getUsername())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Username is already taken!"));
+		}
+
+		if (userRepository.existsByEmail(user.getEmail())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Email is already in use!"));
+		}
+		oldUser.setEmail(user.getEmail());
+		oldUser.setUsername(user.getUsername());
+		userRepository.save(oldUser);
+		return ResponseEntity.ok(new MessageResponse("User updated successfully!"));
+	}
+
+	@PostMapping(path = "/password")
+    public ResponseEntity<?> changeUserPassword(@Valid @RequestBody PasswordRequest pass) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
+		User oldUser = userRepository.findById(us.getId()).get();	
+		
+		if (oldUser.getPassword() != pass.getOldPassword()) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Текущие пароли не совпадают"));
+		}
+		oldUser.setPassword(encoder.encode(pass.getPassword()));
+		userRepository.save(oldUser);
+		return ResponseEntity.ok(new MessageResponse("Password updated successfully!"));
+	}
+
+	@PostMapping(path = "/updateavatar")
+    public ResponseEntity<?> changeUserAvatar(@Valid @RequestBody AvatarRequest avatar) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
+		User oldUser = userRepository.findById(us.getId()).get();	
+		oldUser.setAvatar(avatar.getAvatar());
+		userRepository.save(oldUser);
+		return ResponseEntity.ok(new MessageResponse("User avatar updated successfully!"));
+	}
 	
 	@GetMapping(path = "/lists/{listId}")
     public ListToDo getListById(@PathVariable String listId) {
         return listRepository.findAllById(Integer.parseInt(listId));
-    }
-
+	}
+	
+	@PutMapping(path = "/lists/{listId}")
+    public ListToDo changeListById(@PathVariable String listId, @RequestBody ListToDo list) {
+		//ListToDo savedList = listRepository.saveAndFlush(list);
+		ListToDo oldList = listRepository.findAllById(Integer.parseInt(listId));
+		oldList.setName(list.getName());
+		listRepository.saveAndFlush(oldList);
+        return oldList;
+	}
+	
+	@PutMapping(path = "/things/{thingId}")
+    public Thing changeThingById(@PathVariable String thingId, @RequestBody Thing thing) {
+		Thing oldThing = thingRepository.findAllById(Integer.parseInt(thingId));
+		oldThing.setName(thing.getName());
+		oldThing.setDate(thing.getDate());
+		oldThing.setDescription(thing.getDescription());
+		oldThing.setState(thing.getState());
+		thingRepository.saveAndFlush(oldThing);
+        return oldThing;
+	}
+	
     @PutMapping(path = "/lists")
     public ListToDo saveList(@RequestBody ListToDo list) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
@@ -237,8 +309,6 @@ public class AuthController {
     @GetMapping(path = "/lists/{listId}/things")
     public Iterable<Thing> getThingsByListId( @PathVariable String listId) {
 		ListToDo list = listRepository.findAllById(Integer.parseInt(listId));
-
-		Iterable<Thing> th =thingRepository.findAllByList(list);
 		return thingRepository.findAllByList(list);
 	}
 
