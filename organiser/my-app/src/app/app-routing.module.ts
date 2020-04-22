@@ -8,6 +8,9 @@ import {AllThingsPageComponent} from './allThings/app.allThingsPageComponent';
 import {DayThingsPageComponent} from './dayThings/app.dayThingsPageComponent';
 import {AddThingPageComponent} from './addThing/app.addThingPageComponent';
 import {AddListPageComponent} from './addList/app.addListPageComponent';
+import { CalendarComponent } from './calendar/calendar';
+import { AddEventPageComponent } from './addEvent/app.addEventPageComponent';
+import { PasswordChangeComponent } from './password/app.passwordComponent';
 
 const routes: Routes = [{
   path: 'login',
@@ -50,6 +53,20 @@ const routes: Routes = [{
 {
   path: 'addList',
   component: AddListPageComponent
+},
+{
+  path: 'password',
+  component: PasswordChangeComponent
+},
+   
+{
+  path: 'addEvent',
+  component: AddEventPageComponent
+},
+   
+{
+  path: 'calendar',
+  component: CalendarComponent
 },
 
 { path: 'user', component: BoardUserComponent },
