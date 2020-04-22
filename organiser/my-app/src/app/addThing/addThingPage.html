@@ -1,4 +1,73 @@
 
+<div *ngIf="changeThingBool; then changeThing else addThing"></div>
+
+<ng-template #changeThing>
+
+<div class="col-md-6 grid-margin stretch-card">
+<div class="card">
+<div class="card-body">
+<h4 class="card-title">Изменение дела</h4>
+<form #myform="ngForm" class="forms-sample">
+<div class="form-group">
+<label for="exampleInputName1">Название</label>
+<input type="text"
+name="name"
+id="name"
+required
+[(ngModel)]="name"
+class="form-control"
+placeholder="{{thing.name}}">
+</div>
+<div class="form-group">
+<label for="exampleTextarea1">Описание</label>
+<textarea
+class="form-control"
+name="description"
+id="description"
+placeholder="{{thing.description}}"
+required [(ngModel)]="description"
+rows="2"></textarea>
+</div>
+<!— <div class="input-group date datepicker"> —>
+<label for="exampleTextarea1">Дата</label>
+<my-date-picker
+[options]="myDatePickerOptions"
+name="date"
+id="date"
+placeholder="{{thing.date}}">
+required [(ngModel)]="date">
+</my-date-picker>
+<!— </div> —>
+
+<div class="input-group">
+<label for="exampleName1">Время</label>
+<input
+name="time"
+id="time"
+required [(ngModel)]="time"
+tp-time-picker
+value="19:00"/>
+</div>
+
+<div class="form-group">
+<label for="exampleSelectPrimary">Список</label>
+
+<select class="form-control border-primary" id="listname"
+required [(ngModel)]="listname" name="listname" #list="ngModel"
+>
+<option *ngFor="let list of lists, let i = index" [value]="list.id" >{{list.name}} </option>
+</select>
+</div>
+
+<button type="submit" class="btn btn-success mr-2" (click)="changeThingF(myform)">Изменить</button>
+<button class="btn btn-light" routerLink="/allThings">Отмена</button>
+</form>
+</div>
+</div>
+</div>
+</ng-template>
+
+<ng-template #addThing>
 <div class="col-md-6 grid-margin stretch-card">
 <div class="card">
 <div class="card-body">
@@ -23,7 +92,7 @@ id="description"
 required [(ngModel)]="description"
 rows="2"></textarea>
 </div>
-<!-- <div class="input-group date datepicker"> -->
+<!— <div class="input-group date datepicker"> —>
 <label for="exampleTextarea1">Дата</label>
 <my-date-picker
 [options]="myDatePickerOptions"
@@ -31,7 +100,7 @@ name="date"
 id="date"
 required [(ngModel)]="date">
 </my-date-picker>
-<!-- </div> -->
+<!— </div> —>
 
 <div class="input-group">
 <label for="exampleName1">Время</label>
@@ -58,3 +127,4 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 </div>
 </div>
 </div>
+</ng-template>

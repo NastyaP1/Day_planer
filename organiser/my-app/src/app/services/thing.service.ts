@@ -39,4 +39,9 @@ export class ThingService {
     getAll(): Observable<Thing[]>{
         return this.http.get<Thing[]>("http://localhost:8181/api/auth/things");
     }
+
+    changeThing(id, thing: Thing) : Observable<Thing>
+    {
+        return this.http.put<Thing>("http://localhost:8181/api/auth/things/" + id, thing);
+    }
 }

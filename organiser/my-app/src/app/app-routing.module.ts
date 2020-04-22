@@ -13,60 +13,61 @@ import { AddEventPageComponent } from './addEvent/app.addEventPageComponent';
 import { PasswordChangeComponent } from './password/app.passwordComponent';
 
 const routes: Routes = [{
-  path: 'login',
-  component: LoginPageComponent
+path: 'login',
+component: LoginPageComponent
 },
 
 {
-  path: 'register',
-  component: RegistrationPageComponent
+path: 'password',
+component: PasswordChangeComponent
 },
 
 {
-  path: 'profile',
-  component: ProfilePageComponent
+path: 'register',
+component: RegistrationPageComponent
 },
 
 {
-  path: 'allThings',
-  component: AllThingsPageComponent
+path: 'addEvent',
+component: AddEventPageComponent
 },
 
 {
-  path: 'dayThings',
-  component: DayThingsPageComponent
-},
-{
-  path:'addList',
-  component: AddListPageComponent
-},
-{
-  path:'addThing',
-  component: AddThingPageComponent
+path: 'profile',
+component: ProfilePageComponent
 },
 
 {
-  path: 'addThing',
-  component: AddThingPageComponent
+path: 'allThings',
+component: AllThingsPageComponent
 },
 
 {
-  path: 'addList',
-  component: AddListPageComponent
+path: 'dayThings',
+component: DayThingsPageComponent
 },
 {
-  path: 'password',
-  component: PasswordChangeComponent
+path:'addList',
+component: AddListPageComponent
 },
-   
 {
-  path: 'addEvent',
-  component: AddEventPageComponent
+path:'addThing',
+component: AddThingPageComponent
 },
-   
+
 {
-  path: 'calendar',
-  component: CalendarComponent
+path: 'addThing',
+component: AddThingPageComponent
+},
+
+{
+path: 'addList',
+component: AddListPageComponent
+},
+
+{
+path: 'calendar',
+component: CalendarComponent
 },
 
 { path: 'user', component: BoardUserComponent },
@@ -74,7 +75,7 @@ const routes: Routes = [{
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+imports: [RouterModule.forRoot(routes)],
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
