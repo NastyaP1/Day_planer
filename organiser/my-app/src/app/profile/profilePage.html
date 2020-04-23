@@ -1,143 +1,95 @@
-  <div class="col-md-6 grid-margin stretch-card"><div class="card">
-    <div class="container-fluid bg-secondary py-2">
-      <p class="mb-0 text-gray card-title">Личный кабинет</p>
-    </div>
-  <!-- <div class="row user-profile"> -->
-    
-      <!-- <div class="row"> -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info">
-            <!-- <div class="profile-image">
-                  <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
+<div class="col-md-6 grid-margin stretch-card"><div class="card">
+  <div class="container-fluid bg-secondary py-2">
+    <p class="mb-0 text-gray card-title">Личный кабинет</p>
+  </div>
+<!-- <div class="row user-profile"> -->
+  
+    <!-- <div class="row"> -->
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info">
+          <div *ngIf="showAvatars; then showAvatarsToChoose else userAvatar"></div>
+
+          <ng-template #showAvatarsToChoose>
+          <div class="img-div">
+            <div *ngFor="let i of imgURL">
+              <img width="80" (click) = "chooseAvatar(i)" src="{{i}}" alt="">
             </div>
-            <span class="form-label">Фото пользователя</span> -->
-            <div class="card-body avatar">
-              <!-- <img src="../../images/faces/face6.jpg" alt=""> -->
-              <img src="http://via.placeholder.com/100x100/f4f4f4/000000" alt="image"/>
+          </div>
+          </ng-template>
+
+          <ng-template #userAvatar>
+            <div class="img-div">
+              <div>
+                <img width="80" src="{{avatar}}" alt="">
+              </div>    
             </div>
-            <div class="tab-pane fade active show" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
-              <div class="wrapper mb-5 mt-4">
-                <!-- <span class="badge badge-warning text-white">Note : </span> -->
-                <p class="d-inline ml-3 text-muted">Размер изображения не должен превышать 1МБ.</p>
-              </div>
-              <form action="#">
-                <div class="dropify-wrapper">
-                  <div class="dropify-message">
-                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                    <p>Перетащите сюда файл или нажмите сюда</p>
-                    <!-- <p class="dropify-error">Ooops, something wrong appended.</p> -->
-                  </div>
-                  <div class="dropify-loader" style="display: none;">
-                  </div>
-                  <!-- <div class="dropify-errors-container">
-                    <ul></ul></div> -->
-                    <input type="file" class="dropify" data-max-file-size="1mb">
-                    <!-- <button type="button" class="dropify-clear">Удалить</button> -->
-                    <!-- <div class="dropify-preview" style="display: none;">
-                      <span class="dropify-render"></span>
-                      <div class="dropify-infos">
-                        <div class="dropify-infos-inner">
-                          <p class="dropify-filename">
-                            <span class="file-icon"></span> 
-                            <span class="dropify-filename-inner">face6.jpg</span>
-                          </p>
-                          <p class="dropify-infos-message">Drag and drop or click to replace</p>
-                        </div>
-                      </div>
-                    </div> -->
-                  </div>
-                <!-- <input type="file" class="dropify" data-max-file-size="1mb" data-default-file="../../images/faces/face6.jpg"/> -->
-                <div class="form-group mt-5">
-                  <button type="submit" class="btn btn-success mr-2">Изменить</button>
-                  <button type="reset" class="btn btn-outline-danger">Отменить</button>
-                </div>
-              </form>
-            </div>
-        <form action="/" method="post">
-          <!-- <div class="row"> -->
-            
-          <!-- <div class="col-lg-7"> -->
-          <div class="form-group">
-          <label for="name">Имя пользователя </label>
-          <input
-          type="text"
-          name="name"
-          id="name"
-          class="form-input form-input--square form-input--border-c-alto bg-wild-sand form-input--large"
-          required
-          value="{{currentUser.username}}"
-          >
-          </div><!--.form-group -->
-          
-          <div class="form-group">
-          <label for="email">E-mail </label>
-          <input
-          type="email"
-          name="email"
-          id="email"
-          class="form-input form-input--square form-input--border-c-alto bg-wild-sand form-input--large"
-          required
-          value="{{currentUser.email}}"
-          >
-          </div><!--.form-group -->
-          
-          <!-- <div class="form-group">
-          <label for="introduction">Your info</label>
-          <textarea
-          class="form-input form-input--square form-input--border-c-alto bg-wild-sand"
-          id="introduction"
-          rows="10"></textarea>
-          </div> -->
-          <!--</div>col-->       
-          
-          
+          </ng-template>
+
           <div class="form-group mt-5">
-            <button type="submit" class="btn btn-success mr-2">Сохранить изменения</button>
+            <button type="submit" (click)="toShowAvatars()" class="btn btn-success mr-2">Изменить</button>
           </div>
-          <!-- </div>row -->
-          </form>
-        </div>
-      </div>
-        <!-- </div> -->
-      </div>
-    <!-- </div>
-    <div class="col-lg-8 side-right stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="wrapper d-block d-sm-flex align-items-center justify-content-between">
-            <h4 class="card-title mb-0">Details</h4>
-            <ul class="nav nav-tabs tab-solid tab-solid-primary mb-0" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-expanded="true">Info</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="avatar-tab" data-toggle="tab" href="#avatar" role="tab" aria-controls="avatar">Avatar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="security-tab" data-toggle="tab" href="#security" role="tab" aria-controls="security">Security</a>
-              </li>
-            </ul>
+          <span class="form-label">Фото пользователя</span> 
+          
+             <form 
+                *ngIf="!isSuccessful"
+                name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm"
+                novalidate>
+              <div class="row">
+              <div class="col-lg-7">
+              <div class="form-group">
+              <label for="name">Имя пользователя </label>
+              <input
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="form.username"
+              required
+              minlength="3"
+              maxlength="20"
+              #username="ngModel"
+              placeholder="{{currentUser.username}}"
+
+              >
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Имя пользователя обязательно для заполнения</div>
+          <div *ngIf="username.errors.minlength">
+            Имя пользователя должно содержать минимум 3 символа
           </div>
-          <div class="wrapper">
-            <hr>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info">
-                
-              </div>
-              <div class="tab-pane fade" id="avatar" role="tabpanel" aria-labelledby="avatar-tab">
-                <div class="wrapper mb-5 mt-4">
-                  <span class="badge badge-warning text-white">Note : </span>
-                  <p class="d-inline ml-3 text-muted">Image size is limited to not greater than 1MB .</p>
-                </div>
-              </div> -->
-            <!-- </div> -->
-            </div>
-          <!-- </div>
+          <div *ngIf="username.errors.maxlength">
+            Имя пользователя должно содержать не более 20 символов
+          </div>
         </div>
+        </div><!--.form-group -->
+        
+        <div class="form-group">
+        <label for="email">E-mail </label>
+        <input
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="form.email"
+        placeholder="{{currentUser.email}}"
+        required
+        email
+        #email="ngModel"
+      >
+        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email.errors.required">E-mail обязательен для заполнения</div>
+          <div *ngIf="email.errors.email">
+            E-mail должен быть действительным адресом электронной почты
+          </div>
+        </div>
+        </div>
+        </div>
+        <div class="form-group mt-5">
+          <button type="submit" class="btn btn-success mr-2">Сохранить изменения</button>
+        </div>
+        </div>
+        </form>
       </div>
     </div>
-  </div> -->
-
-
-
-
+      <!-- </div> -->
+    </div>
+          </div>

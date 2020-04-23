@@ -28,14 +28,10 @@
     "angular-colorpicker-dr": "^0.1.0",
     "angular-crypto-js": "^1.0.7",
     "angular-google-oauth2": "^0.2.0",
-<<<<<<< HEAD
     "angularx-flatpickr": "^6.3.1",
     "date-fns": "^2.12.0",
     "dateformat": "^3.0.3",
     "flatpickr": "^4.6.3",
-=======
-    "angular-material-datepicker": "^1.0.2",
->>>>>>> 3b7a4ce168aa7e0c25e670ee336dfae60c8c04e1
     "mydatepicker": "^2.6.10",
     "ng-gapi": "0.0.73",
     "ng-pick-datetime": "^7.0.0",
