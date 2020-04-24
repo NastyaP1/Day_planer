@@ -1,4 +1,3 @@
-
 <div *ngIf="changeThingBool; then changeThing else addThing"></div>
 
 <ng-template #changeThing>
@@ -7,7 +6,7 @@
 <div class="card">
 <div class="card-body">
 <h4 class="card-title">Изменение дела</h4>
-<form #myform="ngForm" class="forms-sample">
+<form method="get"  onsubmit="ym(62236273,'reachGoal','CHANGE_THING_INFO'); return true;" #myform="ngForm" class="forms-sample">
 <div class="form-group">
 <label for="exampleInputName1">Название</label>
 <input type="text"
@@ -28,16 +27,16 @@ placeholder="{{thing.description}}"
 required [(ngModel)]="description"
 rows="2"></textarea>
 </div>
-<!— <div class="input-group date datepicker"> —>
+
 <label for="exampleTextarea1">Дата</label>
 <my-date-picker
 [options]="myDatePickerOptions"
 name="date"
 id="date"
-placeholder="{{thing.date}}">
+placeholder="{{thing.date}}"
 required [(ngModel)]="date">
 </my-date-picker>
-<!— </div> —>
+
 
 <div class="input-group">
 <label for="exampleName1">Время</label>
@@ -92,7 +91,7 @@ id="description"
 required [(ngModel)]="description"
 rows="2"></textarea>
 </div>
-<!— <div class="input-group date datepicker"> —>
+
 <label for="exampleTextarea1">Дата</label>
 <my-date-picker
 [options]="myDatePickerOptions"
@@ -100,7 +99,7 @@ name="date"
 id="date"
 required [(ngModel)]="date">
 </my-date-picker>
-<!— </div> —>
+
 
 <div class="input-group">
 <label for="exampleName1">Время</label>
@@ -121,7 +120,8 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 </select>
 </div>
 
-<button type="submit" class="btn btn-success mr-2" (click)="createThing(myform)">Создать</button>
+<button type="submit" onclick="ym(62236273,'reachGoal','CHANGE_THING'); return true;"
+class="btn btn-success mr-2"  (click)="createThing(myform)">Создать</button>
 <button class="btn btn-light" routerLink="/allThings">Отмена</button>
 </form>
 </div>

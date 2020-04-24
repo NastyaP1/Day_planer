@@ -35,7 +35,13 @@ export class ProfilePageComponent implements OnInit {
     console.log(this.currentUser);
     console.log(this.imgURL);
     this.showAvatars = false;
-    this.avatar = sessionStorage.getItem("avatar");
+    if( sessionStorage.getItem("avatar")){
+      this.avatar = sessionStorage.getItem("avatar");
+    }
+    else{
+      this.avatar = this.currentUser.avatar;
+    }
+    
   } 
 
   onSubmit() {
@@ -69,10 +75,5 @@ export class ProfilePageComponent implements OnInit {
   toShowAvatars(){
     this.showAvatars = true;
   }
-
-  onSubmitAvatar(){
-    
-  }
-
   
 }

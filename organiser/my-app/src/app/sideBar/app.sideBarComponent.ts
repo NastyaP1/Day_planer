@@ -78,7 +78,6 @@ sessionStorage.setItem("list", JSON.stringify(this.lists[i].name));
 }
 changeList(){
 sessionStorage.setItem("changeList", JSON.stringify(false));
-//window.location.replace("/addList");
 }
 changeThing(){
 sessionStorage.setItem("changeThing", JSON.stringify(false));

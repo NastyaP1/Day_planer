@@ -1,52 +1,29 @@
+<div class="container-calender">
+    <div class="container-calender-btn">
+        <div class="form-group">
+            <button routerLink="/addEvent" class="btn btn-primary btn-block">
+              Добавить событие
+            </button>
+        </div>
+    </div>
+              
+      <div class="container">
+        <ngx-simple-calendar  [options]="options1" [events]="events">
+        <ng-template #day
+                       let-date="number"
+                       let-events="events"
+                       let-active="today"
+                       let-weekend="weekend">
+            <div
+                 [class.active]="active"
+                 [class.weekend]="weekend">
+              <span>{{date}}</span>
+              <div class="events">
+                <div class="event" [style.background-color]="event.data.color" *ngFor="let event of events, let i = index"  onclick="ym(62236273,'reachGoal','DOUBLE_CLICK_EVENT'); return true;" (dblclick)="deleteEvent(event)" [title]="event.data.name"></div>
+              </div>
+            </div>
+          </ng-template>
+        </ngx-simple-calendar>
+      </div>
 
-<div class="col-md-6 grid-margin stretch-card">
-    <div class="card">
-    <div class="card-body">
-    <h4 class="card-title">Добавление события</h4>
-    <form #myform="ngForm" class="forms-sample">
-    <div class="form-group">
-    <label for="exampleInputName1">Название</label>
-    <input type="text"
-    name="name"
-    id="name"
-    required
-    [(ngModel)]="name"
-    class="form-control"
-    placeholder="Название">
-    </div>
-    <!-- <div class="input-group date datepicker"> -->
-    <label for="start_date">Дата начала</label>
-    <my-date-picker
-    [options]="myDatePickerOptions"
-    name="start_date"
-    id="start_date"
-    required [(ngModel)]="start_date">
-    </my-date-picker>
-    <!-- </div> -->
-
-    <!-- <div class="input-group date datepicker"> -->
-        <label for="end_date">Дата окончания</label>
-        <my-date-picker
-        [options]="myDatePickerOptions"
-        name="end_date"
-        id="end_date"
-        required [(ngModel)]="end_date">
-        </my-date-picker>
-    <!-- </div> -->    
-    
-    <div>
-        <fieldset>
-            <legend>Выберите цвет</legend>
-            <np-ui-color-picker 
-            name="color"
-            id="color"
-            required [(ngModel)]="color">></np-ui-color-picker>
-        </fieldset>
-    </div>
-
-    <button type="submit" class="btn btn-success mr-2" (click)="createEvent(myform)">Создать</button>
-    <button class="btn btn-light" routerLink="/calendar">Отмена</button>
-    </form>
-    </div>
-    </div>
-    </div>
+</div>

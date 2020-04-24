@@ -1,4 +1,3 @@
-
 <div class="card">
   <div class="container-fluid bg-secondary py-2">
   <p class="mb-0 text-gray card-title">{{header}}
@@ -17,7 +16,7 @@
   <h3>Дата</h3>
   <p>{{date}}</p>
   <a ><i class="fa fa-trash" aria-hidden="true" (click)="delete()"></i></a>
-  <a ><i class="fa fa-pencil" aria-hidden="true" routerLink="/addThing" (click)="changeThing()"></i></a>
+  <a ><i class="fa fa-pencil" aria-hidden="true" onclick="ym(62236273,'reachGoal','CLICK_CHANGE_THING'); return true;" routerLink="/addThing" (click)="changeThing()"></i></a>
   </div>
   </div>
   
@@ -74,18 +73,6 @@
   </div>
   <i class="remove mdi mdi-close-circle-outline"></i>
   </ul>
-  <!-- </div> -->
-  <!-- <div *ngFor="let thing of things, let i = index">
-  <ul class="d-flex flex-column-reverse todo-list" >
-  <div class="form-check">
-  <button (click)="toggle(i)">
-  <input type="checkbox">
-  {{thing.name}}
-  </button>
-  </div>
-  <i class="remove mdi mdi-close-circle-outline"></i>
-  </ul>
-  </div> -->
   
   </div>
   </div>
