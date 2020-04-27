@@ -10,8 +10,9 @@
 * Теремкова Д.А. - бизнес-аналитик, в дальнейшем front-end разработчик;
 
 Ссылки:
-* Miro: функциональная схема и диаграммы: https://miro.com/app/board/o9J_kugDQco=/ 
+* Miro: функциональная схема, диаграммы, а так же станицы приложения: https://miro.com/app/board/o9J_kugDQco=/ 
 * Trello: https://trello.com/b/JgAAixwV/ежедневник
 * Техническое задание: [Техническое задание](https://github.com/NastyaP1/Day_planer/blob/master/Техническое%20задание.pdf)
 * Курсовая работа:  [Курсовая работа](https://github.com/NastyaP1/Day_planer/blob/master/Курсовая.pdf)
 * Распределение задач :  [Распределение задач](https://github.com/NastyaP1/Day_planer/blob/master/Распределение%20задач.pdf)
+* Сайт : http://64.227.23.35/
