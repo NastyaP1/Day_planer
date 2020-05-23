@@ -34,11 +34,17 @@ export class AuthService {
     }, httpOptions);
   }
 
+  oldpassword(credentials):  Observable<any>{
+    console.log(credentials);
+    return this.http.post(AUTH_API + 'oldpassword', {
+      password: credentials.oldpassword
+    }, httpOptions);
+  }
+
   password(credentials):  Observable<any>{
     console.log(credentials);
     return this.http.post(AUTH_API + 'password', {
-      opassword: credentials.password,
-      oldpassword: credentials.oldpassword
+      password: credentials.password
     }, httpOptions);
   }
 

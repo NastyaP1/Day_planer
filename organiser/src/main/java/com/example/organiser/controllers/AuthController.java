@@ -159,16 +159,32 @@ public class AuthController {
 		return ResponseEntity.ok(new MessageResponse("User updated successfully!"));
 	}
 
+	@PostMapping(path = "/oldpassword")
+    public ResponseEntity<?> checkUserPassword(@Valid @RequestBody PasswordRequest pass) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
+		User oldUser = userRepository.findById(us.getId()).get();	
+
+		if (!encoder.matches(pass.getPassword(),  oldUser.getPassword())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: старый и текущий пароли не совпадают"));
+		}
+		//oldUser.setPassword(encoder.encode(pass.getPassword()));
+		//userRepository.save(oldUser);
+		return ResponseEntity.ok(new MessageResponse("Текущие пароли совпадают"));
+	}
+
 	@PostMapping(path = "/password")
     public ResponseEntity<?> changeUserPassword(@Valid @RequestBody PasswordRequest pass) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
 		UserDetailsImpl us = (UserDetailsImpl)authentication.getPrincipal();
 		User oldUser = userRepository.findById(us.getId()).get();	
 		
-		if (oldUser.getPassword() != pass.getOldPassword()) {
+		if (encoder.matches(pass.getPassword(),  oldUser.getPassword())) {
 			return ResponseEntity
 					.badRequest()
-					.body(new MessageResponse("Error: Текущие пароли не совпадают"));
+					.body(new MessageResponse("Error: старый и новый пароли не должны совпадать"));
 		}
 		oldUser.setPassword(encoder.encode(pass.getPassword()));
 		userRepository.save(oldUser);
