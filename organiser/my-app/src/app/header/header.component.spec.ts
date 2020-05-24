@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AllThingsPageComponent } from './app.allThingsPageComponent';
+import { HeaderComponent } from './app.headerComponent';
 
-describe('AllThingsPageComponent', () => {
-  let component: AllThingsPageComponent;
-  let fixture: ComponentFixture<AllThingsPageComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllThingsPageComponent ],
-      imports: [  RouterTestingModule]
+      declarations: [ HeaderComponent ],
+      imports: [ RouterTestingModule],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllThingsPageComponent);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { ProfilePageComponent } from './app.profilePageComponent';
+import { FormsModule } from '@angular/forms';
 
 describe('ProfilePageComponent', () => {
   let component: ProfilePageComponent;
@@ -8,7 +9,8 @@ describe('ProfilePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilePageComponent ]
+      declarations: [ ProfilePageComponent ],
+      imports: [ FormsModule, RouterTestingModule],
     })
     .compileComponents();
   }));
