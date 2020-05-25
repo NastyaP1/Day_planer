@@ -11,6 +11,7 @@ import {AddListPageComponent} from './addList/app.addListPageComponent';
 import { CalendarComponent } from './calendar/calendar';
 import { AddEventPageComponent } from './addEvent/app.addEventPageComponent';
 import { PasswordChangeComponent } from './password/app.passwordComponent';
+import { PrivacyComponent } from './privacy/app.privacyComponent';
 
 const routes: Routes = [{
 path: 'login',
@@ -70,8 +71,12 @@ path: 'calendar',
 component: CalendarComponent
 },
 
+{path: 'privacy',
+component: PrivacyComponent
+},
+
 { path: 'user', component: BoardUserComponent },
-{ path: '', redirectTo: 'home', pathMatch: 'full' }
+{ path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

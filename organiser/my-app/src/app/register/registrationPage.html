@@ -83,20 +83,37 @@
                 <div class="mt-2 w-75 mx-auto">
                   <div class="form-check form-check-flat">
                     <label >
-                      <input type="checkbox" class="form-check-input">
-                      Я принимаю условия пользовательского соглашения
+                      <input type="checkbox" [checked]="policySelected" (change)="policySelected = !policySelected">
+                      Я принимаю <a routerLink="/privacy"> условия пользовательского соглашения</a>
                     </label>
                   </div>
+
+                  <div class="alert-danger" *ngIf="f.submitted && !policySelected">
+                    Необходимо принять условия соглашения
+                  </div>
                 </div>
-                <div class="mt-2 text-center">
-                  <span class="font-weight-medium">Уже зарегистрированы?</span>
-                  <button class="btn btn-secondary btn-block">Войти</button>
-                  <!-- <a  class="auth-link text-black">Уже зарегистрированы? <span class="font-weight-medium">Sign in</span></a> -->
+                <div class="mt-2 w-75 mx-auto">
+                  <div class="form-check form-check-flat">
+                    <label >
+                      <input type="checkbox" [checked]="policySelected" (change)="policySelected = !policySelected">
+                      Я принимаю <a routerLink="/privacy"> условия пользовательского соглашения</a>
+                    </label>
+                  </div>
+
+                  <div class="alert-danger" *ngIf="f.submitted && !policySelected">
+                    Необходимо принять условия соглашения
+                  </div>
                 </div>
+               
                 <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
                   Что-то пошло не так!<br />{{ errorMessage }}
                 </div>
-              </form>     
+              </form>   
+              <div class="mt-2 text-center">
+                <span class="font-weight-medium">Уже зарегистрированы?</span>
+                <button routerLink="/login" class="btn btn-secondary btn-block">Войти</button>
+                <!-- <a  class="auth-link text-black">Уже зарегистрированы? <span class="font-weight-medium">Sign in</span></a> -->
+              </div>  
               <div class="alert alert-success" *ngIf="isSuccessful">
                 Регистрация прошла успешно!
               </div>             
@@ -107,4 +124,3 @@
     </div>
   </div>
 </div>
-<!-- content-wrapper ends -->

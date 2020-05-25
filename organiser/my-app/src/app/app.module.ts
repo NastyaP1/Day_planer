@@ -45,6 +45,7 @@ import { AddListPageComponent } from './addList/app.addListPageComponent';
 import { AddThingPageComponent } from './addThing/app.addThingPageComponent';
 import { AddEventPageComponent } from './addEvent/app.addEventPageComponent';
 import { PasswordChangeComponent } from './password/app.passwordComponent';
+import { PrivacyComponent } from './privacy/app.privacyComponent';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { PasswordChangeComponent } from './password/app.passwordComponent';
     AddListPageComponent,
     AddEventPageComponent,
     CalendarComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    PrivacyComponent
   ],
   imports: [
     FullCalendarModule,
