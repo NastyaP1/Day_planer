@@ -15,4 +15,5 @@
 * Техническое задание: [Техническое задание](https://github.com/NastyaP1/Day_planer/blob/master/Техническое%20задание.pdf)
 * Курсовая работа:  [Курсовая работа](https://github.com/NastyaP1/Day_planer/blob/master/Курсовая.pdf)
 * Распределение задач :  [Распределение задач](https://github.com/NastyaP1/Day_planer/blob/master/Распределение%20задач.pdf)
-* Сайт: [http://64.227.23.35](http://64.227.23.35)
+* Сайт: [http://67.205.151.245](http://67.205.151.245)
+* Демо видео: [Демо видео](https://drive.google.com/file/d/1psKcSClh4PNhAvEw8PaZXCkY-MNdWHtr/view?usp=sharing)
