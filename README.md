@@ -21,4 +21,4 @@
 - Сайт: 
     - Пользователь: login: Simpleone; password: 123456
     - [http://67.205.151.245](http://67.205.151.245)
-* Демо видео: [Демо видео](https://drive.google.com/file/d/1psKcSClh4PNhAvEw8PaZXCkY-MNdWHtr/view?usp=sharing)
+* Демо видео с таймкодом: [Демо видео](https://youtu.be/JCeHNyzC3g4)
