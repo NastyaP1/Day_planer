@@ -15,10 +15,10 @@
 * Техническое задание: [Техническое задание](https://github.com/NastyaP1/Day_planer/blob/master/documentation/Техническое%20задание.pdf)
 * Курсовая работа:  [Курсовая работа](https://github.com/NastyaP1/Day_planer/blob/master/documentation/Курсовая.pdf)
 * Распределение задач:  [Распределение задач](https://github.com/NastyaP1/Day_planer/blob/master/documentation/Распределение%20задач.pdf)
-* Swagger: 
-** Рекомендуем перед использованием Swagger ознакомиться с документацией: [Swagger документация](https://github.com/NastyaP1/Day_planer/blob/master/documentation/Swagger.pdf)
-** [Swagger](https://app.swaggerhub.com/apis-docs/NastyaP1/Simpleone/1.1)
-* Сайт: 
-** Пользователь: login: Simpleone; password: 123456
-** [http://67.205.151.245](http://67.205.151.245)
+- Swagger: 
+    - Рекомендуем перед использованием Swagger ознакомиться с документацией: [Swagger документация](https://github.com/NastyaP1/Day_planer/blob/master/documentation/Swagger.pdf)
+    - [Swagger](https://app.swaggerhub.com/apis-docs/NastyaP1/Simpleone/1.1)
+- Сайт: 
+    - Пользователь: login: Simpleone; password: 123456
+    - [http://67.205.151.245](http://67.205.151.245)
 * Демо видео: [Демо видео](https://drive.google.com/file/d/1psKcSClh4PNhAvEw8PaZXCkY-MNdWHtr/view?usp=sharing)
