@@ -1,22 +1,43 @@
+<div class="sideBar">
+  <sideBar ></sideBar>
+</div>
+<div class="content-wrapper"><div class="card">
 
 <div class="container-fluid bg-secondary py-2">
   <p class="mb-0 text-gray card-title">Дела на день</p>
+  <h4 class="card-title">{{daydate}}</h4>
+
+</div>
+<div [ngClass]="{invisible: visibility}" class="child info-form mb-5">
+  <div class="card-body">
+  <!-- <button class="btn btn-secondary">Закрыть</button> -->
+  <a ><i class="fa fa-times" aria-hidden="true" (click)="close()"></i></a>
+
+  <h4 class="card-title">Название:  {{name}}</h4>
+
+  <h4 class="card-title">Описание: {{description}}</h4>
+
+  <h4 class="card-title">Дата: {{date}}</h4>
+  <span class="btn"><i class="fa fa-trash" aria-hidden="true" onclick="ym(62236273,'reachGoal','CLICK_THING'); return true;" (click)="delete()"></i> </span>
+  <span class="btn"><i class="fa fa-pencil" aria-hidden="true" routerLink="/addThing" (click)="changeThing()"></i> </span>
+  </div>
 </div>
 <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
     <div class="list-wrapper px-3 today">
-        <h4 class="card-title">Дата</h4>
         <a class="nav-link  nav-btn" routerLink="/addThing" >
-            <span class="btn"><i class="menu-icon fa fa-plus" aria-hidden="true"></i> Добавить дело</span>
+            <span  (click)="changeThingFalse()" class="btn"><i class="menu-icon fa fa-plus"  aria-hidden="true" routerLink="/addThing"></i> Добавить дело</span>
           </a>
-      <ul class="d-flex flex-column-reverse todo-list">
-        <li>
-          <div class="form-check">
-            <label>
-              <input class="checkbox" type="checkbox">
-              This is task for today
-            </label>
-          </div>
-          <i class="remove mdi mdi-close-circle-outline"></i>
-      </ul>
+          <ul class="d-flex flex-column-reverse todo-list" *ngFor="let thing of things, let i = index">
+            <div class="form-check">
+            <input *ngIf="thing.state=='true'" (click)="changeState(thing)" class="checkbox" checked type="checkbox">
+            <input *ngIf="thing.state=='false'" (click)="changeState(thing)" class="checkbox" type="checkbox">
+            <a (click)="toggle(i)">
+            {{thing.name}}
+            </a>
+            </div>
+            <i class="remove mdi mdi-close-circle-outline"></i>
+            </ul>
     </div>
       </div>
+    </div>
+</div>

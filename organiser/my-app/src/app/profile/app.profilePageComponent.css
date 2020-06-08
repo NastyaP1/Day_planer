@@ -2,6 +2,11 @@ img-div {
   width: 5rem;
   height: 5rem;
   }
+
+  .sideBar{
+    position: absolute;
+    margin-top: 4%;
+  }
   
   img {
   cursor: pointer;

@@ -1,5 +1,15 @@
 
 
+.d-inline-block{
+  width: 300px;
+  left: 5%;
+  position: relative; 
+}
+
+.nav-link-list{
+  color: #8d9498;
+}
+
 @-moz-keyframes flash {
     0% {
       opacity: 1; }

@@ -1,5 +1,10 @@
 
 
+.sideBar{
+  position: absolute;
+  margin-top: 4%;
+}
+
 
 @-moz-keyframes flash {
     0% {

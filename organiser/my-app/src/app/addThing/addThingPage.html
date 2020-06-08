@@ -1,4 +1,8 @@
-<div *ngIf="changeThingBool; then changeThing else addThing"></div>
+<div class="sideBar">
+    <sideBar ></sideBar>
+</div>
+<div class="content-wrapper">
+    <div *ngIf="changeThingBool; then changeThing else addThing"></div>
 
 <ng-template #changeThing>
 
@@ -58,7 +62,7 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 </select>
 </div>
 
-<button type="submit" class="btn btn-success mr-2" (click)="changeThingF(myform)">Изменить</button>
+<button type="submit" class="btn btn-success mr-2" (click)="changeThingF(myform)" onclick="ym(62236273,'reachGoal','CHANGE_THING'); return true;">Изменить</button>
 <button class="btn btn-light" routerLink="/allThings">Отмена</button>
 </form>
 </div>
@@ -71,8 +75,8 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 <div class="card">
 <div class="card-body">
 <h4 class="card-title">Добавление дела</h4>
-<form #myform="ngForm" class="forms-sample">
-<div class="form-group">
+<form #myform="ngForm" class="forms-sample" method="get"  onsubmit="ym(62236273,'reachGoal','ADD_INFO_THING'); return true;">
+    <div class="form-group">
 <label for="exampleInputName1">Название</label>
 <input type="text"
 name="name"
@@ -120,7 +124,7 @@ required [(ngModel)]="listname" name="listname" #list="ngModel"
 </select>
 </div>
 
-<button type="submit" onclick="ym(62236273,'reachGoal','CHANGE_THING'); return true;"
+<button type="submit" onclick="ym(62236273,'reachGoal','CREATE_THING'); return true;"
 class="btn btn-success mr-2"  (click)="createThing(myform)">Создать</button>
 <button class="btn btn-light" routerLink="/allThings">Отмена</button>
 </form>

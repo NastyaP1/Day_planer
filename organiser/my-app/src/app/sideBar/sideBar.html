@@ -1,4 +1,3 @@
-<nav *ngIf="isLoggedIn$ | async as isLoggedIn" class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
   <li class="nav-item nav-profile">
   <div class="nav-link">
@@ -27,8 +26,8 @@
   </a>
   </li>
   <li class="nav-item">
-  <a class="nav-link" (click)="changeThing()" routerLink="/addThing">
-  <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
+    <a class="nav-link" onclick="ym(62236273,'reachGoal','CLICK_ADD_THING'); return true;" (click)="changeThing()" routerLink="/addThing">
+      <i class="menu-icon fa fa-plus" aria-hidden="true"></i>
   <span class="menu-title">Добавить дело</span>
   </a>
   </li>
@@ -52,5 +51,18 @@
   </a>
   </li>
   </ul>
-  
-  </nav>
+  <div ngbDropdown #myDrop="ngbDropdown" [autoClose]="true" class="d-inline-block">
+    <button (click)="showLists()" class="btn current-way" id="dropdownForm1" ngbDropdownToggle>Списки</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+        <div *ngFor="let list of lists, let i=index"> 
+          <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" (click)="sendListName(list.id, i)" >
+              <span class="menu-title">{{ list.name }}</span>
+            </a>
+            </li>
+          </ul>
+        </div>
+
+    </div>
+  </div>

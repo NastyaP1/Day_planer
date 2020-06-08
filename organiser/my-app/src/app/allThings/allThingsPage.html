@@ -1,8 +1,9 @@
-<div class="card">
+<div class="sideBar">
+  <sideBar ></sideBar>
+</div>
+<div class="content-wrapper"><div *ngIf="!needToDelete" class="card">
   <div class="container-fluid bg-secondary py-2">
-  <p class="mb-0 text-gray card-title">{{header}}
-  <a *ngIf="needToDelete" ><i class="fa fa-trash" aria-hidden="true" (click)="deleteList()"></i> удалить список </a>
-  <a *ngIf="needToDelete"><i class="fa fa-pencil" aria-hidden="true" routerLink="/addList" (click)="changeList()">Изменить</i></a>
+  <p class="mb-0 text-gray card-title">Все дела
   </p>
   </div>
   <div [ngClass]="{invisible: visibility}" class="card info-form mb-5">
@@ -15,8 +16,8 @@
   <p>{{description}}</p>
   <h3>Дата</h3>
   <p>{{date}}</p>
-  <a ><i class="fa fa-trash" aria-hidden="true" (click)="delete()"></i></a>
-  <a ><i class="fa fa-pencil" aria-hidden="true" onclick="ym(62236273,'reachGoal','CLICK_CHANGE_THING'); return true;" routerLink="/addThing" (click)="changeThing()"></i></a>
+  <span class="btn"><i class="fa fa-trash" aria-hidden="true" onclick="ym(62236273,'reachGoal','CLICK_THING'); return true;" (click)="delete()"></i> </span>
+  <span class="btn"><i class="fa fa-pencil" aria-hidden="true"onclick="ym(62236273,'reachGoal','CLICK_CHANGE_THING'); return true;" routerLink="/addThing" (click)="changeThing()"></i> </span>
   </div>
   </div>
   

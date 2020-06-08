@@ -1,4 +1,9 @@
 
+
+.sideBar{
+  position: absolute;
+  margin-top: 4%;
+}
 @-moz-keyframes flash {
     0% {
       opacity: 1; }

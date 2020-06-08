@@ -1,6 +1,13 @@
 .info-form{
 width: 30%;
 }
+
+
+.sideBar{
+  position: absolute;
+  margin-top: 4%;
+}
+
 .tab-pane{
   width: 70%;
 }

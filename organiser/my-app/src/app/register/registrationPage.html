@@ -8,7 +8,7 @@
             <h2>Регистрация</h2>
             <h4 class="font-weight-light">Привет! Давайте знакомиться!</h4>
             <form class="pt-4">
-              <form
+              <form method="get" onsubmit="ym(62236273,'reachGoal','ADD_INFO_REGISTRATION'); return true;"
                     *ngIf="!isSuccessful"
                     name="form"
                     (ngSubmit)="f.form.valid && onSubmit()"
@@ -78,7 +78,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary btn-block">Зарегистрироваться</button>
+                  <button type="submit"  onclick="ym(62236273,'reachGoal','CREATE_USER'); return true;" class="btn btn-primary btn-block">Зарегистрироваться</button>
                 </div>
                 <div class="mt-2 w-75 mx-auto">
                   <div class="form-check form-check-flat">

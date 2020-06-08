@@ -1,43 +1,49 @@
-.container {
-    position: relative;
-    height: 40rem;
-    width: 40rem;
-    margin: 2rem;
-  }
-  .container-calender {
-    position: relative;
-    height: 50rem;
-    width: 50rem;
-    margin: 2rem;
-  }
-  .fieldset{
-    height: 10rem;
-    width: 10rem;
-    margin: 2rem;
-  }
-  .container-calender-btn{
-    height: 3rem;
-    width: 15rem;
-    margin-left: 70%;
-  }
-  :host {
-    display: flex;
-    overflow: auto;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
 
-  .round-date.weekend {
-      background: #ffe8e8;
-  }
-  .events {
-    display: flex;
+
+.container {
+  position: relative;
+  height: 40rem;
+  width: 40rem;
+  margin: 2rem;
+}
+.container-calender {
+  position: relative;
+  height: 50rem;
+  width: 50rem;
+  margin: 2rem;
+}
+
+.fieldset{
+  height: 10rem;
+  width: 10rem;
+  margin: 2rem;
+}
+.container-calender-btn{
+  height: 3rem;
+  width: 15rem;
+  margin-left: 95%;
+}
+
+.round-date.weekend {
+    background: #ffe8e8;
+}
+.events {
+  display: flex;
+}
+
+.event {
+  height: 1.0rem;
+  width: 1.0rem;
+  background-color: #ed752a;
+  cursor: pointer;
+}
+.info-form{
+  width: 30%;
   }
   
-  .event {
-    height: 1.0rem;
-    width: 1.0rem;
-    background-color: #ed752a;
-    cursor: pointer;
+  
+  .sideBar{
+    position: absolute;
+    margin-top: 4%;
   }
+  

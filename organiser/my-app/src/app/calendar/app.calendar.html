@@ -1,25 +1,34 @@
-<div class="container-calender">
-    <div class="container-calender-btn">
-        <div class="form-group">
-            <button routerLink="/addEvent" class="btn btn-primary btn-block">
-              Добавить событие
-            </button>
-        </div>
-    </div>
+<div class="sideBar">
+  <sideBar ></sideBar>
+</div>
+<div class="content-wrapper"><div class="container-calender">
+  <div class="container-calender-btn">
+      <div class="form-group">
+          <button routerLink="/addEvent" onclick="ym(62236273,'reachGoal','CLICK_ADD_EVENT'); return true;" class="btn btn-primary btn-block">
+            Добавить событие
+          </button>
+      </div>
+      <p>Хочешь узнать, что за событие? Наведи на него</p>
+      <p>Хочешь удалить событие? Зажми alt и нажми на него</p>
+      <p>Хочешь посмотреть дела на день? Дважды нажми на него</p>
+  </div>
               
       <div class="container">
         <ngx-simple-calendar  [options]="options1" [events]="events">
         <ng-template #day
                        let-date="number"
+                       let-month="month"
+                       let-year="year"
                        let-events="events"
                        let-active="today"
                        let-weekend="weekend">
             <div
+            (dblclick)="setDay(date,month,year)" 
                  [class.active]="active"
                  [class.weekend]="weekend">
               <span>{{date}}</span>
               <div class="events">
-                <div class="event" [style.background-color]="event.data.color" *ngFor="let event of events, let i = index" (dblclick)="deleteEvent(event)" [title]="event.data.name"></div>
+                <div class="event"     onclick="ym(62236273,'reachGoal','DOUBLE_CLICK_EVENT'); return true;" [style.background-color]="event.data.color" *ngFor="let event of events, let i = index"  (click)="deleteEvent(event, $event)" [title]="event.data.name"></div>
               </div>
             </div>
           </ng-template>
