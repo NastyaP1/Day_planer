@@ -22,3 +22,5 @@
     - Пользователь: login: Simpleone; password: 123456
     - [http://67.205.151.245](http://67.205.151.245)
 * Демо видео с таймкодом: [Демо видео](https://youtu.be/JCeHNyzC3g4)
+* Презентация в pdf формате: [Презентация](https://github.com/NastyaP1/Day_planer/blob/master/documentation/ТП презентация.pdf)
+* Презентация в pptx формате: [Презентация](https://github.com/NastyaP1/Day_planer/blob/master/documentation/ТП презентация.pptx)
