@@ -7,8 +7,8 @@
 Команда:
 * Капусткин В.И. - ux/ui-дизайнер,бизнес-аналитик и PM;
 * Переславцева А.А. - PM, full-stack разработчик и тестировщик; 
+    - e-mail для связи: anastasiapereslavtseva@gmail.com
 * Теремкова Д.А. - бизнес-аналитик, front-end разработчик и PM;
-e-mail для связи: anastasiapereslavtseva@gmail.com
 
 Ссылки:
 * Miro: функциональная схема, диаграммы, а так же станицы приложения: https://miro.com/app/board/o9J_kugDQco=/ 
