@@ -6,8 +6,9 @@
 
 Команда:
 * Капусткин В.И. - ux/ui-дизайнер,бизнес-аналитик и PM;
-* Переславцева А.А. - PM, full-stack разработчик и тестировщик;
+* Переславцева А.А. - PM, full-stack разработчик и тестировщик; 
 * Теремкова Д.А. - бизнес-аналитик, front-end разработчик и PM;
+e-mail для связи: anastasiapereslavtseva@gmail.com
 
 Ссылки:
 * Miro: функциональная схема, диаграммы, а так же станицы приложения: https://miro.com/app/board/o9J_kugDQco=/ 
@@ -21,6 +22,7 @@
 - Сайт: 
     - Пользователь: login: Simpleone; password: 123456
     - [http://67.205.151.245](http://67.205.151.245)
+* Видео защиты проекта: [Защита проекта](https://youtu.be/qxKMTTZvt80)
 * Демо видео с таймкодом: [Демо видео](https://youtu.be/JCeHNyzC3g4)
 * Презентация в pdf формате: [Презентация](https://github.com/NastyaP1/Day_planer/blob/master/documentation/ТП%20презентация.pdf)
 * Презентация в pptx формате: [Презентация](https://github.com/NastyaP1/Day_planer/blob/master/documentation/ТП%20презентация.pptx)
